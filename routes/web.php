@@ -29,9 +29,6 @@ Route::post('/register_user', [UserController:: class, 'register_user'])->middle
 
 Route::get('/logout', [UserController:: class, 'logout']);
 
-// CALLING CONTROLLER
-Route::get('/users', [UserController::class, 'index']);
-
 // Route::get('/user/{id}', [UserController::class, 'show'])->middleware('auth');
 
 // Route::get('/user/{id}', [UserController::class, 'show']);
