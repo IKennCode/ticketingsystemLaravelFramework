@@ -1,0 +1,21 @@
+html, body{
+  background: url('../public/images/bg.jpg');
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  padding: 0;
+  margin: 0;
+  box-sizing: content-box;
+}
+
+.custom-bg{
+  background: linear-gradient(to bottom, #22577A, #38A3A5, transparent);
+}
+
+.input-bg{
+  background: linear-gradient(to right, #000, transparent); 
+}
+
+.btn-hover:hover{
+  background: linear-gradient(to bottom, #22577A, #000);
+}
