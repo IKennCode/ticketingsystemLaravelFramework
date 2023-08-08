@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Ticket extends Migration
+class Tickets extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class Ticket extends Migration
      */
     public function up()
     {
-        Schema::create('ticket', function (Blueprint $table) {
+        Schema::create('tickets', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->longtext('description');
@@ -36,6 +36,6 @@ class Ticket extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ticket');
+        Schema::dropIfExists('tickets');
     }
 }
