@@ -15,10 +15,15 @@ use App\Http\Controllers\TicketController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [UserController:: class, 'index']);
 
 Route::get('/users', [UserController:: class, 'users']);
 
 Route::get('/tickets', [TicketController:: class, 'tickets']);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
