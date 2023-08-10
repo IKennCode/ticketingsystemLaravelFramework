@@ -17,18 +17,18 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('first_name');
             $table->string('middle_name')->nullable()->default(null);
-            $table->string('last_name');
-            $table->timestamp('birthdate');
-            $table->integer('gender');
-            $table->integer('marital_status');
-            $table->integer('department');
-            $table->integer('position');
+            $table->string('last_name')->nullable()->default(null);
+            $table->timestamp('birthdate')->nullable()->default(null);
+            $table->integer('gender')->nullable()->default(null);
+            $table->integer('marital_status')->nullable()->default(null);
+            $table->integer('department')->nullable()->default(null);
+            $table->integer('job_title')->nullable()->default(null);
             $table->timestamp('hired_at')->nullable()->default(null);
             $table->timestamp('resigned_at')->nullable()->default(null);
-            $table->integer('permission');
-            $table->string('username')->unique();
-            $table->string('password');
-            $table->integer('status');
+            $table->integer('permission')->nullable()->default(null);
+            $table->string('username')->unique()->nullable()->default(null);
+            $table->string('password')->nullable()->default(null);
+            $table->integer('status')->nullable()->default(null);
             $table->timestamps();
         });
     }

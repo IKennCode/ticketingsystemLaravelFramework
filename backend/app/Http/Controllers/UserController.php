@@ -15,7 +15,6 @@ class UserController extends Controller
         return view('index');
     }
 
-<<<<<<< HEAD
     public function login(Request $request){
         $credentials = $request->validate([
             'username' => 'required|string|exists:users,username',
@@ -29,35 +28,44 @@ class UserController extends Controller
             return back()->with('error', 'Username / Password is incorrect!');
         }
     }
-=======
-    
+
     public function newuser(){
         return view('new_user');
     }
 
     public function add(Request $request){
+        // dd($request);
         $validated = $request->validate([
             'first_name' => ['required', 'min:2'],
-            'middle_name' => ['required', 'min:2'],
+            'middle_name' => ['min:2'],
             'last_name' => ['required', 'min:2'],
             'birthdate' => ['required'],
             'gender' => ['required'],
             'marital_status' => ['required'],
             'department' => ['required'],
-            'position' => ['required'],
+            'job_title' => ['required'],
             'hired_at' => ['required'],
             'permission' => ['required'],
-            'username' => ['required', 'min:4'],
-            'password' => 'required|confirmed|min:6',
-            'status' => ['required'],
+            'username' => ['required'],
+            'password' => ['min:6'],
+            'is_active' => ['min:1']
         ]);
 
-        $validated['password'] = Hash::make($validated['password']);
->>>>>>> 10754928045cb93a485c5d113b560eaf01875fcb
+        // dd($validated);
+        $validated['password'] = Hash::make('password');
+        $validated['is_active'] = 1;
 
-        $user = User::create($validated);
-
-        return $user;
+        // $validated['first_name'] = $request->input('first_name');
+        // dd($validated);
+        $created = User::insert($validated);
+        
+        if($created){
+            return redirect('/users/newuser')
+                ->with('error', 'New user created');
+        }else{
+            return redirect('/users/newuser')
+                ->with('error', 'Error saving record');
+        }
     }
 
     // DISPLAY SAMPLE USERS TABLE

@@ -12,7 +12,7 @@
                         <div class="row mb-3">
                             <label for="first_name" class="col-md-4 col-form-label text-md-end">First Name</label>
                             <div class="col-md-6">
-                                <input id="first_name" type="text" name="first_name" class="form-control value="{{ old('first_name') }}" autofocus required>
+                                <input id="first_name" type="text" name="first_name" value="{{ old('first_name') }}" class="form-control" autofocus required>
                             </div>
                         </div>
 
@@ -31,9 +31,9 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="bdate" class="col-md-4 col-form-label text-md-end">Birthdate</label>
+                            <label for="birthdate" class="col-md-4 col-form-label text-md-end">Birthdate</label>
                             <div class="col-md-6">
-                                <input id="bdate" type="date" name="bdate" class="form-control value="{{ old('bdate') }}" required>
+                                <input id="birthdate" type="date" name="birthdate" class="form-control value="{{ old('birthdate') }}" required>
                             </div>
                         </div>
 
@@ -49,9 +49,9 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="mstatus" class="col-md-4 col-form-label text-md-end">Marital Status</label>
+                            <label for="marital_status" class="col-md-4 col-form-label text-md-end">Marital Status</label>
                             <div class="col-md-6">
-                                <select id="mstatus" class="form-control" name="mstatus" required>
+                                <select id="marital_status" class="form-control" name="marital_status" required>
                                     <option value=""></option>
                                     <option value="1">Single</option>
                                     <option value="2">Married</option>
@@ -77,9 +77,9 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="jobtitle" class="col-md-4 col-form-label text-md-end">Job Title</label>
+                            <label for="job_title" class="col-md-4 col-form-label text-md-end">Job Title</label>
                             <div class="col-md-6">
-                                <select id="jobtitle" class="form-control" name="jobtitle" required>
+                                <select id="job_title" class="form-control" name="job_title" required>
                                     <option value=""></option>
                                     <option value="1">IT</option>
                                     <option value="2">Finance</option>
@@ -91,9 +91,9 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="date_hired" class="col-md-4 col-form-label text-md-end">Date Hired</label>
+                            <label for="hired_at" class="col-md-4 col-form-label text-md-end">Date Hired</label>
                             <div class="col-md-6">
-                                <input id="date_hired" type="date" name="date_hired" class="form-control value="{{ old('date_hired') }}" required>
+                                <input id="hired_at" type="date" name="hired_at" class="form-control value="{{ old('hired_at') }}" required>
                             </div>
                         </div>
 
@@ -115,18 +115,11 @@
                                 <input id="username" type="text" name="username" class="form-control value="{{ old('username') }}" required>
                             </div>
                         </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">Password</label>
+                        
+                        <div class="row mb-3"> {{-- HIDDEN INPUT FIELDS --}}
                             <div class="col-md-6">
-                                <input id="password" type="password" name="password" class="form-control value="{{ old('password') }}" required>
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password_confirmation" class="col-md-4 col-form-label text-md-end">Confirm Password</label>
-                            <div class="col-md-6">
-                                <input id="password_confirmation" type="password" name="password_confirmation" class="form-control" required>
+                                <input id="password" type="hidden" name="password" class="form-control" value="password">
+                                <input id="is_active" type="hidden" name="is_active" class="form-control" value="1">
                             </div>
                         </div>
 

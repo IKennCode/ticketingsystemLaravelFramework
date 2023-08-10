@@ -22,7 +22,7 @@ class UserFactory extends Factory
             'gender' => $this->faker->randomNumber(1, 1, 2),
             'marital_status' => $this->faker->randomNumber(1, 1, 6),
             'department' => $this->faker->randomNumber(1, 1, 6),
-            'position' => $this->faker->randomNumber(1, 1, 6),
+            'job_title' => $this->faker->randomNumber(1, 1, 6),
             'hired_at' => $this->faker->dateTimeBetween('-1 years', 'now'),
             'permission' => $this->faker->randomNumber(1, 1, 3),
             'username' => $this->faker->unique()->name(),
