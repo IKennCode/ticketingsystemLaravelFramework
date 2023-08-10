@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Validator;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Logs;
 use Illuminate\Contracts\Validation\Rule;
 
 class UserController extends Controller
@@ -46,20 +47,38 @@ class UserController extends Controller
             'job_title' => ['required'],
             'hired_at' => ['required'],
             'permission' => ['required'],
-            'username' => ['required'],
+            'username' => ['min:3'],
             'password' => ['min:6'],
-            'is_active' => ['min:1']
+            'status' => ['min:1'],
+            'created_at' => ['min:1']
         ]);
 
+
         // dd($validated);
+        $firstname = strtoupper($validated['first_name']);
+        $middlename = strtoupper($validated['middle_name']);
+        $lastname = strtoupper($validated['last_name']);
+        $validated['username'] = strtoupper(ucfirst($firstname[0]) . ucfirst($middlename[0]) . $lastname);
         $validated['password'] = Hash::make('password');
-        $validated['is_active'] = 1;
+        $validated['status'] = 1;
+        $validated['created_at'] = now();
 
         // $validated['first_name'] = $request->input('first_name');
         // dd($validated);
         $created = User::insert($validated);
         
         if($created){
+            $creator = '1';
+            $logs = ([
+                'user' => ['min:1'],
+                'description' => ['min:1'],
+                'created_at' => ['min:1']
+            ]);
+
+            $logs['user'] = $creator;
+            $logs['description'] = $creator . ' created an account for ' . $firstname . ' ' . $middlename . ' ' . $lastname;
+            $logs['created_at'] = now();
+            Logs::insert($logs);
             return redirect('/users/newuser')
                 ->with('error', 'New user created');
         }else{

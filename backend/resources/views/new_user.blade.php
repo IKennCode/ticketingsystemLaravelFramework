@@ -12,21 +12,21 @@
                         <div class="row mb-3">
                             <label for="first_name" class="col-md-4 col-form-label text-md-end">First Name</label>
                             <div class="col-md-6">
-                                <input id="first_name" type="text" name="first_name" value="{{ old('first_name') }}" class="form-control" autofocus required>
+                                <input id="first_name" type="text" name="first_name" value="{{ old('first_name') }}" class="form-control" oninput="this.value = this.value.toUpperCase()" autofocus required>
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <label for="middle_name" class="col-md-4 col-form-label text-md-end">Middle Name</label>
                             <div class="col-md-6">
-                                <input id="middle_name" type="text" name="middle_name" class="form-control value="{{ old('middle_name') }}" autofocus>
+                                <input id="middle_name" type="text" name="middle_name" class="form-control" value="{{ old('middle_name') }} "oninput="this.value = this.value.toUpperCase()" autofocus>
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <label for="last_name" class="col-md-4 col-form-label text-md-end">Last Name</label>
                             <div class="col-md-6">
-                                <input id="last_name" type="text" name="last_name" class="form-control value="{{ old('last_name') }}" required>
+                                <input id="last_name" type="text" name="last_name" class="form-control" value="{{ old('last_name') }}" oninput="this.value = this.value.toUpperCase()" required>
                             </div>
                         </div>
 
@@ -109,17 +109,18 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
+                        {{-- <div class="row mb-3">
                             <label for="username" class="col-md-4 col-form-label text-md-end">Username</label>
                             <div class="col-md-6">
                                 <input id="username" type="text" name="username" class="form-control value="{{ old('username') }}" required>
                             </div>
-                        </div>
+                        </div> --}}
                         
                         <div class="row mb-3"> {{-- HIDDEN INPUT FIELDS --}}
                             <div class="col-md-6">
                                 <input id="password" type="hidden" name="password" class="form-control" value="password">
-                                <input id="is_active" type="hidden" name="is_active" class="form-control" value="1">
+                                <input id="status" type="hidden" name="status" class="form-control" value="1">
+                                <input id="username" type="hidden" name="username" value="username" class="form-control">
                             </div>
                         </div>
 
