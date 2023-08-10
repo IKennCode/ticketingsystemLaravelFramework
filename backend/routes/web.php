@@ -5,6 +5,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\DashboardController;
 
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,13 +26,13 @@ Auth::routes();
 
 
 Route::get('/users', [UserController:: class, 'users']);
+Route::get('/users/newuser', [UserController:: class, 'newuser']);
+Route::post('/users/newuser/add', [UserController:: class, 'add']);
 
 Route::get('/tickets', [TicketController:: class, 'tickets']);
-
-Route::get('/dashboard', [DashboardController:: class, 'dashboard']);
-
-
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+

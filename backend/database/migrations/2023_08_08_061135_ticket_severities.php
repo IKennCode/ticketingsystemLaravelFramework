@@ -16,7 +16,7 @@ class TicketSeverities extends Migration
         Schema::create('ticket_severities', function (Blueprint $table){
             $table->id();
             $table->string('title');
-            $table->string('description');
+            $table->longText('description');
             $table->integer('fk_severity')->nullable()->default(null);
             $table->integer('created_by')->nullable()->default(null);
             $table->integer('updated_by')->nullable()->default(null);
