@@ -16,14 +16,14 @@ class UserController extends Controller
 
     public function login(Request $request){
         $credentials = $request->validate([
-            'username' => 'required|username',
-            'password' => 'required|min:6|max:45'
+            'username' => 'required|string|exists:users,username',
+            'password' => 'required|min:6|max:45|confirmed'
         ]);
-
-        if(Auth::attempt($credentials)){
+    
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('dashboard');
-        }else{
+            return redirect()->intended('/dashboard');
+        } else {
             return back()->with('error', 'Username / Password is incorrect!');
         }
     }
