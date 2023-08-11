@@ -1,9 +1,5 @@
+
 @include('parts._head')
-    <form action="/logout" method="post">
-        @csrf
-        <button class="btn btn-sm btn-warning">
-            Logout
-        </button>
-    </form>
+@include('parts._navbar')
     <h1>This is the dashboard</h1>
 @include('parts._foot')

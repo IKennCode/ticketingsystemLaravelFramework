@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\DashboardController;
 
+
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -20,12 +21,12 @@ use Illuminate\Support\Facades\Auth;
 */
 
 // LOGIN CONTROLLERS
-Route::get('/', [LoginController:: class, 'index']);
+Route::get('/', [LoginController:: class, 'index'])->name('login');
 Route::post('/login', [LoginController:: class, 'authenticate']);
 Route::post('/logout', [LoginController:: class, 'logout']);
 
 //DASHBOARD CONTROLLERS
-Route::get('/dashboard', [DashboardController:: class, 'dashboard']);
+Route::get('/dashboard', [DashboardController:: class, 'dashboard'])->middleware('auth');
 
 // USER CONTROLLERS
 Route::get('/users', [UserController:: class, 'users']);
@@ -34,5 +35,11 @@ Route::post('/users/newuser/add', [UserController:: class, 'add']);
 
 // TICKETS CONTROLLER
 Route::get('/tickets', [TicketController:: class, 'tickets']);
+
+
+Route::get('/test', function(){
+    print_r($request->session()->get('key'));
+});
+
 
 
