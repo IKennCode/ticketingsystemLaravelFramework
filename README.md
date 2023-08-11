@@ -16,3 +16,13 @@ Mini 2 project
 
 ## Database
 - DB name: one
+
+### UPDATES
+- Changed users column name from position to job_title
+- Adding of users is now available
+- Logs generation when user creation is successful
+
+### FEATURES
+- Creating of user accounts
+- Generating of creation logs
+  
