@@ -12,30 +12,11 @@ use Illuminate\Contracts\Validation\Rule;
 
 class UserController extends Controller
 {
-    public function index(){
-        return view('index');
-    }
-
-    public function login(Request $request){
-        $credentials = $request->validate([
-            'username' => 'required|string|exists:users,username',
-            'password' => 'required|min:6|max:45|confirmed'
-        ]);
-    
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            return redirect()->intended('/dashboard');
-        } else {
-            return back()->with('error', 'Username / Password is incorrect!');
-        }
-    }
-
     public function newuser(){
         return view('new_user');
     }
 
     public function add(Request $request){
-        // dd($request);
         $validated = $request->validate([
             'first_name' => ['required', 'min:2'],
             'middle_name' => ['min:2'],
@@ -53,8 +34,6 @@ class UserController extends Controller
             'created_at' => ['min:1']
         ]);
 
-
-        // dd($validated);
         $firstname = strtoupper($validated['first_name']);
         $middlename = strtoupper($validated['middle_name']);
         $lastname = strtoupper($validated['last_name']);
@@ -63,8 +42,6 @@ class UserController extends Controller
         $validated['status'] = 1;
         $validated['created_at'] = now();
 
-        // $validated['first_name'] = $request->input('first_name');
-        // dd($validated);
         $created = User::insert($validated);
         
         if($created){
@@ -74,7 +51,6 @@ class UserController extends Controller
                 'description' => ['min:1'],
                 'created_at' => ['min:1']
             ]);
-
             $logs['user'] = $creator;
             $logs['description'] = $creator . ' created an account for ' . $firstname . ' ' . $middlename . ' ' . $lastname;
             $logs['created_at'] = now();

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\DashboardController;
@@ -18,21 +19,20 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', [UserController:: class, 'index']);
+// LOGIN CONTROLLERS
+Route::get('/', [LoginController:: class, 'index']);
+Route::post('/login', [LoginController:: class, 'authenticate']);
+Route::post('/logout', [LoginController:: class, 'logout']);
 
-Route::post('/login', [UserController:: class, 'login']);
+//DASHBOARD CONTROLLERS
+Route::get('/dashboard', [DashboardController:: class, 'dashboard']);
 
-Auth::routes();
-
-
+// USER CONTROLLERS
 Route::get('/users', [UserController:: class, 'users']);
 Route::get('/users/newuser', [UserController:: class, 'newuser']);
 Route::post('/users/newuser/add', [UserController:: class, 'add']);
 
+// TICKETS CONTROLLER
 Route::get('/tickets', [TicketController:: class, 'tickets']);
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
 
