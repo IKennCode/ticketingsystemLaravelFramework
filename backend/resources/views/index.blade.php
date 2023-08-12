@@ -6,13 +6,18 @@
                     <div class="card-header">Login</div>
     
                     <div class="card-body">
-                        <form method="POST" action="">
+                        <form method="POST" action="/login">
                             @csrf
                             <div class="row mb-3">
                                 <label for="email" class="col-md-4 col-form-label text-md-end">Username</label>
     
                                 <div class="col-md-6">
-                                    <input id="username" type="text" class="form-control value="{{ old('username') }}" autofocus required>
+                                    <input id="username" name="username" type="text" class="form-control value="{{ old('username') }}" autofocus required>
+                                    @error('username')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
     

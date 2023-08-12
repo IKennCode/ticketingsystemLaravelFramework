@@ -19,7 +19,7 @@ class UserFactory extends Factory
             'middle_name' => $this->faker->name(),
             'last_name' => $this->faker->name(),
             'birthdate' => $this->faker->dateTimeBetween('-18 years', 'now'),
-            'gender' => $this->faker->randomNumber(1, 1, 2),
+            'gender' => $this->faker->numberBetween(1, 5),
             'marital_status' => $this->faker->randomNumber(1, 1, 6),
             'department' => $this->faker->randomNumber(1, 1, 6),
             'job_title' => $this->faker->randomNumber(1, 1, 6),
