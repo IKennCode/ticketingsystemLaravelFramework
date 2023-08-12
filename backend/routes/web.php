@@ -35,11 +35,21 @@ Route::post('/users/newuser/add', [UserController:: class, 'add']);
 
 // TICKETS CONTROLLER
 Route::get('/tickets', [TicketController:: class, 'tickets']);
+Route::get('/alltickets', [TicketController:: class, 'tickets']);
+Route::get('/tickets/mytickets', [TicketController:: class, 'mytickets'])->middleware('auth');
+Route::get('/tickets/createticket', [TicketController::class, 'newticket']);
+Route::get('/tickets/createticket/save', [TicketController::class, 'addticket']);
+Route::get('/tickets/newtickets', [TicketController::class, 'newtickets']);
+Route::get('/tickets/opentickets', [TicketController::class, 'opentickets']);
+Route::get('/tickets/resolvedtickets', [TicketController::class, 'resolvedtickets']);
+Route::get('/tickets/closedtickets', [TicketController::class, 'closedtickets']);
+Route::get('/tickets/cancelledtickets', [TicketController::class, 'cancelledtickets']);
 
 
-Route::get('/test', function(){
-    print_r($request->session()->get('key'));
-});
+
+// Route::get('/test', function(){
+//     print_r($request->session()->get('key'));
+// });
 
 
 

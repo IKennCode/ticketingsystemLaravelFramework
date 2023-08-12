@@ -12,6 +12,12 @@ use Illuminate\Contracts\Validation\Rule;
 
 class UserController extends Controller
 {
+    // DISPLAY SAMPLE USERS TABLE
+    public function users(){
+        $data = User::orderBy('id', 'desc')->get();
+        return view('users', ['users' => $data]);
+    }
+
     public function newuser(){
         return view('new_user');
     }
@@ -61,13 +67,6 @@ class UserController extends Controller
             return redirect('/users/newuser')
                 ->with('error', 'Error saving record');
         }
-    }
-
-    // DISPLAY SAMPLE USERS TABLE
-    public function users(){
-        $users = User::all();
-
-        return response()->json($users);
     }
 }
 

@@ -19,6 +19,7 @@ class Tickets extends Migration
             $table->longtext('description');
             $table->longtext('category');
             $table->integer('status');
+            $table->integer('opened_by')->nullable()->default(null);
             $table->integer('created_by')->nullable()->default(null);
             $table->integer('updated_by')->nullable()->default(null);
             $table->integer('resolved_by')->nullable()->default(null);
