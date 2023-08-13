@@ -18,8 +18,6 @@
                                 <button class="btn btn-success" type="submit">Go</button>
                               </div>
                         </form>
-                        @include('parts._ticketstable')
-                        {{$tickets->onEachSide(0)->links()}} 
                     </div>
                 </div> 
             </div>

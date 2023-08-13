@@ -5,21 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Tickets;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Pagination\Paginator;
+use App\Providers\AppServiceProvider;
 
 class TicketController extends Controller
 {
     public function tickets(){
-        $data = Tickets::orderBy('id', 'desc')->get();
+        $data = Tickets::orderBy('id', 'desc')->paginate(10);
         return view('tickets', ['tickets' => $data]);
     }
-
     public function alltickets(){
-        $data = Tickets::orderBy('id', 'desc')->get();
+        $data = Tickets::orderBy('id', 'desc')->paginate(10);
         return view('tickets', ['tickets' => $data]);
     }
 
     public function mytickets(){
-        $data = Tickets::where('created_by', '=', auth()->user()->id )->orderBy('id', 'desc')->get();
+        $data = Tickets::where('created_by', '=', auth()->user()->id )->orderBy('id', 'desc')->paginate(10);
         return view('tickets', ['tickets' => $data]);
     }
 
@@ -28,21 +29,39 @@ class TicketController extends Controller
     }
 
     public function addticket(Request $request){
-        $data = Tickets::where('created_by', '=', auth()->user()->id )->orderBy('id', 'desc')->get();
-        return view('tickets', ['tickets' => $data]);
+        // dd($request);
+        $ticket = $request->validate([
+            'title' => ['required'],
+            'description' => ['required'],
+            'category' => ['required'],
+            'status' => ['required'],
+            'created_by' => ['required'],
+            'created_at' => ['required']
+        ]);
+        
+        $ticket['created_at'] = now();
+
+        $save = Tickets::insert($ticket);
+
+        if($save){
+            return redirect('/tickets')->with('message', 'Ticket created');
+        }else{
+            return redirect('/tickets')->with('message', 'Failed to create ticket');
+        }
     }
 
     public function newtickets(){
-        $data = Tickets::where('opened_by', '=', 0 )->orderBy('id', 'desc')->get();
+        $data = Tickets::whereNULL('opened_by')->orderBy('id', 'desc')->paginate(10);
         return view('tickets', ['tickets' => $data]);
     }
 
     public function opentickets(){
         $data = Tickets::where('opened_by', '>', 0 )
-        ->where('status', '=', 0 )
-        ->where('resolved_by', '=', 0 )
-        ->where('cancelled_by', '=', 0 )
-        ->orderBy('id', 'desc')->get();
+        ->where('status', '=', 1)
+        ->whereNULL('resolved_by')
+        ->whereNULL('cancelled_by')
+        ->orderBy('id', 'desc')
+        ->paginate(10);;
         return view('tickets', ['tickets' => $data]);
     }
 
@@ -50,7 +69,8 @@ class TicketController extends Controller
         $data = Tickets::where('opened_by', '>', 0 )
         ->where('status', '=', 3 )
         ->where('resolved_by', '>', 0 )
-        ->orderBy('id', 'desc')->get();
+        ->orderBy('id', 'desc')
+        ->paginate(10);
         return view('tickets', ['tickets' => $data]);
     }
 
@@ -60,14 +80,33 @@ class TicketController extends Controller
         ->where('resolved_by', '>', 0 )
         // ->where('closed_by', '>', 0 )
         // add closed_by column
-        ->orderBy('id', 'desc')->get();
+        ->orderBy('id', 'desc')
+        ->paginate(10);
         return view('tickets', ['tickets' => $data]);
     }
 
     public function cancelledtickets(){
         $data = Tickets::where('cancelled_by', '=', 0 )
-        ->orderBy('id', 'desc')->get();
+        ->orderBy('id', 'desc')
+        ->paginate(10);
         return view('tickets', ['tickets' => $data]);
+    }
+
+    public function viewticket(Request $request){
+        $ticket_id = $request->input('id');
+        $opened_by = $request->input('opened_by');
+
+        $viewed = Tickets::where(['opened_by' => NULL])->where(['id' => $ticket_id])->update(['opened_by' => $opened_by]);
+
+        if($viewed){
+            return redirect('/tickets/ticket');
+        }else{
+            return redirect('/tickets')->with('message', 'Error viewing ticket');
+        }
+    }
+
+    public function ticket(){
+        return view('ticket');
     }
 
     // RESERVE

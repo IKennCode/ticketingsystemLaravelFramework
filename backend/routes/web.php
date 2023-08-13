@@ -34,16 +34,18 @@ Route::get('/users/newuser', [UserController:: class, 'newuser']);
 Route::post('/users/newuser/add', [UserController:: class, 'add']);
 
 // TICKETS CONTROLLER
-Route::get('/tickets', [TicketController:: class, 'tickets']);
-Route::get('/alltickets', [TicketController:: class, 'tickets']);
+Route::get('/tickets', [TicketController:: class, 'tickets'])->middleware('auth');
+Route::get('/alltickets', [TicketController:: class, 'tickets'])->middleware('auth');
 Route::get('/tickets/mytickets', [TicketController:: class, 'mytickets'])->middleware('auth');
-Route::get('/tickets/createticket', [TicketController::class, 'newticket']);
-Route::get('/tickets/createticket/save', [TicketController::class, 'addticket']);
+Route::get('/tickets/createticket', [TicketController::class, 'newticket'])->middleware('auth');
+Route::post('/tickets/createticket/save', [TicketController::class, 'addticket'])->middleware('auth');
 Route::get('/tickets/newtickets', [TicketController::class, 'newtickets']);
 Route::get('/tickets/opentickets', [TicketController::class, 'opentickets']);
 Route::get('/tickets/resolvedtickets', [TicketController::class, 'resolvedtickets']);
 Route::get('/tickets/closedtickets', [TicketController::class, 'closedtickets']);
 Route::get('/tickets/cancelledtickets', [TicketController::class, 'cancelledtickets']);
+Route::get('/tickets/viewticket', [TicketController::class, 'viewticket']);
+Route::get('/tickets/ticket', [TicketController::class, 'ticket']);
 
 
 

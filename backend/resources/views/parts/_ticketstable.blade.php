@@ -1,26 +1,35 @@
-<table class="table table-sm table-hover table-striped table-bordered">
-    <tr>
-        <th>#</th>
-        <th>Status</th>
-        <th>Title</th>
-        <th>Category</th>
-        <th>Requested By</th>
-        <th>Date</th>
-        <th></th>
-    </tr>
-    @foreach ($tickets as $ticket)
-        <tr>
-            <td>{{ $ticket->id }}</td>
-            <td>{{ $ticket->status }}</td>
-            <td>{{ $ticket->title }}</td>
-            <td>{{ $ticket->category }}</td>
-            <td>{{ $ticket->created_by }}</td>
-            <td>{{ $ticket->created_at }}</td>
-            <td>
-                <button class="btn btn-sm btn-success">
-                    view
-                </button>
-            </td>
+<table class="table table-sm table-hover table-striped table-bordered table-responsive-sm table-responsive-md">
+    <thead>
+        <tr class="text-center">
+            <th>#</th>
+            <th>Status</th>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Requested By</th>
+            <th>Date</th>
+            <th></th>
         </tr>
-    @endforeach
+    </thead>
+    <tbody>
+        @foreach ($tickets as $ticket)
+            <tr style="font-size: 0.6rem;" class="text-center">
+                <td class="p-1">{{ $ticket->id }}</td>
+                <td class="p-1">{{ $ticket->status }}</td>
+                <td class="p-1">{{ $ticket->title }}</td>
+                <td class="p-1">{{ $ticket->category }}</td>
+                <td class="p-1">{{ $ticket->created_by }}</td>
+                <td class="p-1">{{ $ticket->created_at }}</td>
+                <td class="p-1">
+                    <form action="/tickets/viewticket" method="get">
+                        @csrf
+                        <input type="hidden" name="opened_by" value="{{auth()->user()->id}}">
+                        <input type="hidden" name="id" value="{{ $ticket->id }}">
+                        <button type="submit" class="btn btn-sm btn-success py-0">
+                            view
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        @endforeach
+    </tbody>
 </table> 

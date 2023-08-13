@@ -13,21 +13,22 @@
       <li class="nav-item">
         <a class="nav-link" href="/users">Users</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">
-          @php
-              print_r(auth()->user()->first_name);
-          @endphp
-        </a>
-      </li>
-      <li class="nav-item">
-        <form action="/logout" method="post">
-          @csrf
-          <button class="btn btn-sm btn-warning">
-            Logout
-          </button>
-        </form>
-      </li>
     </ul>
+    
+    <form action="/logout" class="d-flex" method="post">
+      @csrf
+      <ul class="navbar-nav d-flex">
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">
+            @php
+                print_r(auth()->user()->first_name);
+            @endphp
+          </a>
+        </li>
+      </ul>
+      <button type="submit" class="btn btn-sm btn-warning" href="/logout">
+        Logout
+      </button>
+    </form>
   </div>
 </nav>
