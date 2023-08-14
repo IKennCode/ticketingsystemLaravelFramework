@@ -6,20 +6,19 @@
                 @include('parts._ticketsnav')
             </div>
             <div class="col-sm-12 col-md-10 col-lg-10 pt-5" style="height:100vh;">
+                @foreach($ticket as $data)
                 <div class="card mt-3">
                     <div class="card-header">
-                        <strong>Tickets</strong> | <a class="btn btn-sm btn-primary" href="/tickets/createticket">Create Ticket</a>
-                    </div>
-                    <div class="card-body pb-0">
-                        <form action="#" method="get">
-                            @csrf
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Search">
-                                <button class="btn btn-success" type="submit">Go</button>
-                              </div>
+                        <strong>Ticket</strong> | #{{$data->id}} | 
+                        <form action="#" class="d-flex">
+                            <a type="submit" class="btn btn-sm btn-success">Acknowledge</a>
                         </form>
                     </div>
-                </div> 
+                    <div class="card-body pb-0">
+                        test
+                    </div>
+                </div>
+                @endforeach 
             </div>
         </div>
     </div>  

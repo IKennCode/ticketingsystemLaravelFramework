@@ -96,12 +96,16 @@ class TicketController extends Controller
         $ticket_id = $request->input('id');
         $opened_by = $request->input('opened_by');
 
-        $viewed = Tickets::where(['opened_by' => NULL])->where(['id' => $ticket_id])->update(['opened_by' => $opened_by]);
-
-        if($viewed){
-            return redirect('/tickets/ticket');
+        $is_viewed = Tickets::where('id', $ticket_id)->get();
+        if(($is_viewed[0]['opened_by']) === null){
+            $update = Tickets::where(['id' => $ticket_id])->update(['opened_by' => $opened_by]);
+            $data = Tickets::where('id', $ticket_id)->get();
+            return view('ticket', ['ticket' => $data])->with('message', 'Ticket #' . $ticket_id);
+        }elseif(($is_viewed[0]['opened_by']) != null){
+            $data = Tickets::where('id', $ticket_id)->get();
+            return view('ticket', ['ticket' => $data])->with('message', 'Ticket #' . $ticket_id);
         }else{
-            return redirect('/tickets')->with('message', 'Error viewing ticket');
+            return redirect('/tickets')->with('message', 'Error creating ticket');
         }
     }
 

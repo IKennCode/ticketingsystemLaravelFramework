@@ -44,7 +44,7 @@ Route::get('/tickets/opentickets', [TicketController::class, 'opentickets']);
 Route::get('/tickets/resolvedtickets', [TicketController::class, 'resolvedtickets']);
 Route::get('/tickets/closedtickets', [TicketController::class, 'closedtickets']);
 Route::get('/tickets/cancelledtickets', [TicketController::class, 'cancelledtickets']);
-Route::get('/tickets/viewticket', [TicketController::class, 'viewticket']);
+Route::post('/tickets/viewticket', [TicketController::class, 'viewticket']);
 Route::get('/tickets/ticket', [TicketController::class, 'ticket']);
 
 
