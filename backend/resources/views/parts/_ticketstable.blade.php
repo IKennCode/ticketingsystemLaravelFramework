@@ -20,7 +20,7 @@
                 <td class="p-1">{{ $ticket->created_by }}</td>
                 <td class="p-1">{{ $ticket->created_at }}</td>
                 <td class="p-1">
-                    <form action="/tickets/viewticket" method="post">
+                    <form action="/tickets/viewticket/{{$ticket->id}}/{{auth()->user()->id}}" method="POST">
                         @csrf
                         <input type="hidden" name="opened_by" value="{{auth()->user()->id}}">
                         <input type="hidden" name="id" value="{{ $ticket->id }}">

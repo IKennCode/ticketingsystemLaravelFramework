@@ -44,8 +44,9 @@ Route::get('/tickets/opentickets', [TicketController::class, 'opentickets']);
 Route::get('/tickets/resolvedtickets', [TicketController::class, 'resolvedtickets']);
 Route::get('/tickets/closedtickets', [TicketController::class, 'closedtickets']);
 Route::get('/tickets/cancelledtickets', [TicketController::class, 'cancelledtickets']);
-Route::post('/tickets/viewticket', [TicketController::class, 'viewticket']);
-Route::get('/tickets/ticket', [TicketController::class, 'ticket']);
+Route::post('/tickets/viewticket/{ticket_id}/{viewer_id}', [TicketController::class, 'viewticket']);
+Route::post('/tickets/acknowledge', [TicketController::class, 'ack_ticket']);
+Route::post('/tickets/search', [TicketController::class, 'search']);
 
 
 

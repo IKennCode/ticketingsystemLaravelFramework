@@ -1,4 +1,4 @@
-<ul class="nav flex-column bg-dark mt-5">
+<ul class="nav flex-column mt-5">
     <li class="nav-item">
         <a class="nav-link text-light" href="/tickets">All Tickets</a>
     </li>

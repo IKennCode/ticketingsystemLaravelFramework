@@ -11,10 +11,10 @@
                         <strong>Tickets</strong> | <a class="btn btn-sm btn-primary" href="/tickets/createticket">Create Ticket</a>
                     </div>
                     <div class="card-body pb-0">
-                        <form action="#" method="get">
+                        <form action="/tickets/search" method="post">
                             @csrf
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Search">
+                                <input type="text" class="form-control" placeholder="Search" name="search">
                                 <button class="btn btn-success" type="submit">Go</button>
                               </div>
                         </form>

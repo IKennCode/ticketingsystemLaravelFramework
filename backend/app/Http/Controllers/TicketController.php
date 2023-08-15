@@ -20,7 +20,7 @@ class TicketController extends Controller
     }
 
     public function mytickets(){
-        $data = Tickets::where('created_by', '=', auth()->user()->id )->orderBy('id', 'desc')->paginate(10);
+        $data = Tickets::where('acknowledged_by', '=', auth()->user()->id )->orderBy('id', 'desc')->paginate(10);
         return view('tickets', ['tickets' => $data]);
     }
 
@@ -58,8 +58,10 @@ class TicketController extends Controller
     public function opentickets(){
         $data = Tickets::where('opened_by', '>', 0 )
         ->where('status', '=', 1)
-        ->whereNULL('resolved_by')
-        ->whereNULL('cancelled_by')
+        ->where('opened_by', '>', 0)
+        ->whereNULL('acknowledged_by')
+        // ->whereNULL('resolved_by')
+        // ->whereNULL('cancelled_by')
         ->orderBy('id', 'desc')
         ->paginate(10);;
         return view('tickets', ['tickets' => $data]);
@@ -92,30 +94,44 @@ class TicketController extends Controller
         return view('tickets', ['tickets' => $data]);
     }
 
-    public function viewticket(Request $request){
-        $ticket_id = $request->input('id');
-        $opened_by = $request->input('opened_by');
-
-        $is_viewed = Tickets::where('id', $ticket_id)->get();
-        if(($is_viewed[0]['opened_by']) === null){
-            $update = Tickets::where(['id' => $ticket_id])->update(['opened_by' => $opened_by]);
-            $data = Tickets::where('id', $ticket_id)->get();
-            return view('ticket', ['ticket' => $data])->with('message', 'Ticket #' . $ticket_id);
-        }elseif(($is_viewed[0]['opened_by']) != null){
-            $data = Tickets::where('id', $ticket_id)->get();
-            return view('ticket', ['ticket' => $data])->with('message', 'Ticket #' . $ticket_id);
+    public function viewticket($ticket_id, $viewer_id){
+        $check = Tickets::where('id', $ticket_id)->where('opened_by', '!=', null)->get();
+        if($check){
+            Tickets::where('id', $ticket_id)->update(['opened_by' => $viewer_id]);
+            $data = Tickets::where('id', $ticket_id)->where('opened_by', '=', $viewer_id)->get();
+            return view('ticket', ['ticket' => $data]);
         }else{
-            return redirect('/tickets')->with('message', 'Error creating ticket');
+            $data = Tickets::where('id', $ticket_id)->where('opened_by', '!=', null)->get();
+            return view('ticket', ['ticket' => $data]);
+        }
+        
+    }
+
+    public function ack_ticket(Request $request){
+        $ticket_id = $request->input('ticket_id');
+        $ack = Tickets::where('id', '=', $ticket_id)->update(['acknowledged_by' => auth()->user()->id]);
+        if($ack){
+            return redirect()->intended('/tickets/mytickets');
+        }else{
+            return redirect()->intended('/tickets');
         }
     }
 
-    public function ticket(){
-        return view('ticket');
+    public function search(Request $request){
+        $search_value = $request->input('search');
+        $data = Tickets::where('id', 'like', '%'.$search_value.'%')
+        ->orWhere('title', 'like', '%'.$search_value.'%')
+        ->orWhere('description', 'like', '%'.$search_value.'%')
+        ->orWhere('category', 'like', '%'.$search_value.'%')
+        ->orWhere('created_by', 'like', '%'.$search_value.'%')
+        ->paginate(10);
+        // dd($data);
+        return view('tickets', ['tickets' => $data]);
     }
 
-    // RESERVE
-    // public function tickets(){
-    //     $tickets = Tickets::all();
-    //     return response()->json($tickets);
-    // }
+    // 1 = New
+    // 2 = Acknowledged
+    // 3 = Resolved
+    // 4 = Closed
+    // 5 = Cancelled
 }
