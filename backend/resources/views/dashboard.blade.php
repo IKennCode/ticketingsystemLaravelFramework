@@ -7,7 +7,7 @@
                 @include('parts._ticketsnav')
             </div>
             <div class="col-sm-12 col-md-10 col-lg-10 p-0">
-                <h1>main div</h1>
+                <h1>This is the dashboard</h1>
             </div>
         </div>
     </div>

@@ -2,7 +2,7 @@
 @include('parts._navbar')
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-12 col-md-2 col-lg-2 px-0 bg-dark">
+            <div class="col-sm-12 col-md-2 col-lg-2 px-0 bg-dark pt-5">
                 @include('parts._ticketsnav')
             </div>
             <div class="col-sm-12 col-md-10 col-lg-10 pt-5" style="height:100vh;">

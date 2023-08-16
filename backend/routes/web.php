@@ -32,6 +32,7 @@ Route::get('/dashboard', [DashboardController:: class, 'dashboard'])->middleware
 Route::get('/users', [UserController:: class, 'users']);
 Route::get('/users/newuser', [UserController:: class, 'newuser']);
 Route::post('/users/newuser/add', [UserController:: class, 'add']);
+Route::post('/users/search', [UserController:: class, 'search']);
 
 // TICKETS CONTROLLER
 Route::get('/tickets', [TicketController:: class, 'tickets'])->middleware('auth');

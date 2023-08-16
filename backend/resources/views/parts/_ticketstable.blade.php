@@ -1,6 +1,6 @@
 <table class="table table-sm table-hover table-striped table-bordered table-responsive-sm table-responsive-md">
     <thead>
-        <tr class="text-center">
+        <tr class="text-center table-dark">
             <th>#</th>
             <th>Status</th>
             <th>Title</th>

@@ -14,7 +14,7 @@ class UserController extends Controller
 {
     // DISPLAY SAMPLE USERS TABLE
     public function users(){
-        $data = User::orderBy('id', 'desc')->get();
+        $data = User::orderBy('id', 'desc')->paginate(10);
         return view('users', ['users' => $data]);
     }
 
@@ -67,6 +67,17 @@ class UserController extends Controller
             return redirect('/users/newuser')
                 ->with('error', 'Error saving record');
         }
+    }
+
+    public function search(Request $request){
+        $search_value = $request->input('search');
+        $data = User::where('id', 'like', '%'.$search_value.'%')
+        ->orWhere('first_name', 'like', '%'.$search_value.'%')
+        ->orWhere('last_name', 'like', '%'.$search_value.'%')
+        ->orWhere('username', 'like', '%'.$search_value.'%')
+        ->paginate(10);
+        // dd($data);
+        return view('users', ['users' => $data]);
     }
 }
 
