@@ -16,11 +16,18 @@
                             <li class="nav-item px-1">
                                 #{{$data->id}} 
                             </li>
-                            <li class="nav-item px-1" style="display:{{$data->acknowledged_by ? 'none' : 'block' }};">
+                            <li class="nav-item px-1" style="display:{{$data->acknowledged_by||$data->status==3||$data->status==4||$data->status==5 ? 'none' : 'block' }};">
                                 <form action="/tickets/acknowledge" method="post" class="d-flex">
                                     @csrf
                                     <input type="hidden" name="ticket_id" value="{{$data->id}}">
                                     <button type="submit" class="btn btn-sm btn-success">Acknowledge</button>
+                                </form>
+                            </li>
+                            <li class="nav-item px-1" style="display:{{$data->status==5||$data->status==4||$data->status==3 ? 'none' : 'block' }};">
+                                <form action="/tickets/cancel" method="post" class="d-flex">
+                                    @csrf
+                                    <input type="hidden" name="ticket_id" value="{{$data->id}}">
+                                    <button type="submit" class="btn btn-sm btn-danger">Cancel</button>
                                 </form>
                             </li>
                         </ul>
@@ -116,19 +123,18 @@
                     <div class="card-header"><strong>Resolution</strong></div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-2">
-                                <select class="form-control" name="ticket_status" id="ticket_status">
-                                    <option value="">--</option>
-                                    <option value="3">Open</option>
-                                    <option value="4">Resolve</option>
-                                    <option value="5">Close</option>
-                                    <option value="6">Cancel</option>
-                                </select>
-                            </div>
-                            <div class="col-10">
-                                <textarea class="form-control" name="" id="" cols="10" rows="5"></textarea>
-                                <button class="btn btn-primary btn-sm">Send</button>
-                            </div>
+                            <form action="/tickets/resolve" method="post">
+                                @csrf
+                                @foreach($ticket as $data)
+                                <div class="col-12">
+                                    <input type="hidden" name="ticket_id" value="{{$data->id}}">
+                                    <textarea class="form-control" name="resolution" id="resolution" cols="10" rows="5"
+                                        {{$data->status==3||$data->status==4||$data->status==5 ? "disabled" : ""}}
+                                    >{{$data->resolution}}</textarea>
+                                    <button class="btn btn-primary btn-sm" {{$data->status==3||$data->status==4||$data->status==5 ? "disabled" : ""}}>Resolve</button>
+                                </div>
+                                @endforeach
+                            </form>
                         </div>
                     </div>
                 </div>

@@ -16,15 +16,17 @@ class Tickets extends Migration
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->longtext('description');
-            $table->longtext('category');
+            $table->string('description');
+            $table->string('category');
             $table->integer('status');
             $table->integer('opened_by')->nullable()->default(null);
             $table->integer('acknowledged_by')->nullable()->default(null);
             $table->integer('created_by')->nullable()->default(null);
             $table->integer('updated_by')->nullable()->default(null);
             $table->integer('resolved_by')->nullable()->default(null);
+            $table->longtext('resolution')->nullable()->default(null);
             $table->integer('cancelled_by')->nullable()->default(null);
+            $table->longtext('cancellation')->nullable()->default(null);
             $table->timestamps();
             $table->timestamp('resolved_at')->nullable()->default(null);
             $table->timestamp('cancelled_at')->nullable()->default(null);

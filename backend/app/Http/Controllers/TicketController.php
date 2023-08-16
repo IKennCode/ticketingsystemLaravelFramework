@@ -68,12 +68,17 @@ class TicketController extends Controller
     }
 
     public function resolvedtickets(){
-        $data = Tickets::where('opened_by', '>', 0 )
-        ->where('status', '=', 3 )
-        ->where('resolved_by', '>', 0 )
+        $data = Tickets::where('status', '=', 3)
         ->orderBy('id', 'desc')
         ->paginate(10);
         return view('tickets', ['tickets' => $data]);
+    }
+
+    public function resolve(Request $request){
+        $ticket_id = $request->input('ticket_id');
+        $resolution = $request->input('resolution');
+        Tickets::where('id', '=', $ticket_id)->update(['resolution' => $resolution, 'status' => 3, 'resolved_by' => auth()->user()->id]);
+        return redirect()->intended('/tickets/resolvedtickets');
     }
 
     public function closedtickets(){
@@ -88,7 +93,8 @@ class TicketController extends Controller
     }
 
     public function cancelledtickets(){
-        $data = Tickets::where('cancelled_by', '=', 0 )
+        $data = Tickets::where('cancelled_by', '>', 0 )
+        ->where('status', '=', 5)
         ->orderBy('id', 'desc')
         ->paginate(10);
         return view('tickets', ['tickets' => $data]);
@@ -109,7 +115,7 @@ class TicketController extends Controller
 
     public function ack_ticket(Request $request){
         $ticket_id = $request->input('ticket_id');
-        $ack = Tickets::where('id', '=', $ticket_id)->update(['acknowledged_by' => auth()->user()->id]);
+        $ack = Tickets::where('id', '=', $ticket_id)->update(['acknowledged_by' => auth()->user()->id, 'status' => 2]);
         if($ack){
             return redirect()->intended('/tickets/mytickets');
         }else{
@@ -127,6 +133,12 @@ class TicketController extends Controller
         ->paginate(10);
         // dd($data);
         return view('tickets', ['tickets' => $data]);
+    }
+
+    public function cancel(Request $request){
+        $ticket_id = $request->input('ticket_id');
+        Tickets::where('id', '=', $ticket_id)->update(['cancelled_by' => auth()->user()->id, 'status' => 5]);
+        return redirect()->intended('/tickets');
     }
 
     // 1 = New

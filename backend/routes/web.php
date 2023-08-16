@@ -47,6 +47,8 @@ Route::get('/tickets/cancelledtickets', [TicketController::class, 'cancelledtick
 Route::post('/tickets/viewticket/{ticket_id}/{viewer_id}', [TicketController::class, 'viewticket']);
 Route::post('/tickets/acknowledge', [TicketController::class, 'ack_ticket']);
 Route::post('/tickets/search', [TicketController::class, 'search']);
+Route::post('/tickets/cancel', [TicketController::class, 'cancel']);
+Route::post('/tickets/resolve', [TicketController::class, 'resolve']);
 
 
 

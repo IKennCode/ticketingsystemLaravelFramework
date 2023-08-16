@@ -12,7 +12,21 @@
     </thead>
     <tbody>
         @foreach ($tickets as $ticket)
-            <tr style="font-size: 0.6rem;" class="text-center">
+            <tr style="font-size: 0.6rem;" class="text-center
+                @php
+                    if($ticket->status == 1){
+                        echo "table-warning";
+                    }elseif($ticket->status == 2){
+                        echo "table-info";
+                    }elseif($ticket->status == 3){
+                        echo "table-success";
+                    }elseif($ticket->status == 4){
+                        echo "table-dark";
+                    }else{
+                        echo "table-danger";
+                    }
+                @endphp
+            ">
                 <td class="p-1">{{ $ticket->id }}</td>
                 <td class="p-1">{{ $ticket->status }}</td>
                 <td class="p-1">{{ $ticket->title }}</td>
