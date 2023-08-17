@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} */
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -7,8 +7,38 @@ module.exports = {
     "./resources/**/*.vue",
   ],
   theme: {
-    extend: {},
+    extend: {
+      boxShadow: {
+        "custom": '0 50px 100px -24px rgb(0 0 0 / 0.3)'
+      },
+      colors: {
+        transparent: 'transparent',
+        current: 'currentColor',
+        'white': '#ffffff',
+        'purple': '#3f3cbb',
+        'midnight': '#121063',
+        'metal': '#565584',
+        'tahiti': '#3ab7bf',
+        'silver': '#ecebff',
+        'bubble-gum': '#ff77e9',
+        'bermuda': '#78dcca',
+        'blue' : '#3b82f6',
+        'slate' : '#475569',
+        
+      },
+
+      keyframes: {
+        'trans-bounce' :{
+          '0%, 100%' : {transform: 'translateX(30px)'},
+          '50%' :{transform:'translateX(0px)'}
+        }
+      },
+      animation: {
+        'trans-bounce' : 'trans-bounce 1.5s ease-in-out infinite'
+      }
+    },
   },
   plugins: [],
+
 }
 
