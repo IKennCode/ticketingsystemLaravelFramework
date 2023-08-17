@@ -1,5 +1,5 @@
 @include('parts._head')
-    <div class="container">
+    <div class="container mx-auto px-4 bg-slate-950">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
