@@ -1,10 +1,11 @@
 @include('parts._head')
+<!-- This is the Login UI without Backend  -->
 <section class="bg-gray-50 min-h-screen flex items-center justify-center drop-shadow-2xl" >
         
         <!-- login container starts here -->
         <div class="bg-gray-100 flex rounded-2xl shadow-[25px_25px_30px_-24px_rgb(0,0,0,0.6)] max-w-3xl p-2">
             
-        <!-- form here -->
+        <!-- Form Starts here -->
             <div class="sm:w-1/2 px-5 text-slate drop-shadow-lg">
                 <h2 class="font-bold text-2xl mt-4">Login Here</h2>
                 <p class="text-sm mt-4">If you already a member, easily log in</p>
