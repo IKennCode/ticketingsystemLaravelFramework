@@ -19,9 +19,6 @@ Please follow the sequence bellow
 - php artisan migrate:refresh --seed
 - change the username of any record of the users table to admin
 - password is "password"
-- npm install -D tailwindcss postcss autoprefixer
-- npx tailwindcss init -p
-- npm run dev
 - in your terminal, type the following command "npm run watch"
 
 ### UPDATES
