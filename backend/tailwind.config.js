@@ -24,6 +24,7 @@ module.exports = {
         'bermuda': '#78dcca',
         'blue' : '#3b82f6',
         'slate' : '#475569',
+        'black' : ' #020617',
         
       },
 
