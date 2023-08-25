@@ -29,8 +29,8 @@ module.exports = {
 
       keyframes: {
         'trans-bounce' :{
-          '0%, 100%' : {transform: 'translateX(30px)'},
-          '50%' :{transform:'translateX(0px)'}
+          '0%, 100%' : {transform: 'translateY(30px)'},
+          '50%' :{transform:'translateY(0px)'}
         }
       },
       animation: {
