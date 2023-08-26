@@ -95,7 +95,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        {{ $users->links('pagination::tailwind') }}
+                        {{$users->onEachSide(1)->links('pagination::tailwind')}}
                     </div>
                 </div>
 
