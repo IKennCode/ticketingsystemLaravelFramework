@@ -54,7 +54,8 @@ Route::post('/tickets/resolve', [TicketController::class, 'resolve']);
 
 
 //DEPARTMENTS CONTROLLER
-Route::get('/departments/newdepartment', [DepartmentController::class, 'newdepartment']);
+Route::get('/departments', [DepartmentController::class, 'departments']);
+Route::post('/departments/savedepartment', [DepartmentController::class, 'savedepartment']);
 
 
 // Route::get('/test', function(){
