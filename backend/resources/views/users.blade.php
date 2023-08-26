@@ -11,7 +11,7 @@
                     <a href="/users/newuser" class="flex-1 bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium text-center" aria-current="page">Create New User</a>
                     <a href="#" class="flex-1 text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium text-center">Permissions</a>
                     <a href="/departments" class="flex-1 text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium text-center">Departments</a>
-                    <a href="/users/newuser" class="flex-1 text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium text-center">Job Titles</a>
+                    <a href="/jobtitles" class="flex-1 text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium text-center">Job Titles</a>
                 </div>
             </div>
             <!-- <div class="col-sm-12 col-md-2 col-lg-2 bg-dark pt-5">
