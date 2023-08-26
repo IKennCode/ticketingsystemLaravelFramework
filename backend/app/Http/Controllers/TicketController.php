@@ -60,8 +60,6 @@ class TicketController extends Controller
         ->where('status', '=', 1)
         ->where('opened_by', '>', 0)
         ->whereNULL('acknowledged_by')
-        // ->whereNULL('resolved_by')
-        // ->whereNULL('cancelled_by')
         ->orderBy('id', 'desc')
         ->paginate(10);;
         return view('tickets', ['tickets' => $data]);

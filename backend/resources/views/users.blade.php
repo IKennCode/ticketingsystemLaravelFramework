@@ -73,7 +73,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        {{$users->onEachSide(0)->links()}}
+                        {{ $users->links('pagination::tailwind')}}
                     </div>
                 </div>
 
