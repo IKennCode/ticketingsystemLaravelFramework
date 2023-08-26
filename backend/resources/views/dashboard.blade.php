@@ -1,16 +1,15 @@
 @include('parts._head')
-<div class="flex">
+<div class="flex w-full">
     <div>
         @include('parts._navbar')
     </div>
-    <div class="container-fluid">
-        <div class="row mt-5 p-0 pt-1">
-            <div class="col-sm-12 col-md-2 col-lg-2 p-0">
-                @include('parts._ticketsnav')
-            </div>
-            <div class="col-sm-12 col-md-10 col-lg-10 p-0">
-                <h1>This is the dashboard</h1>
-            </div>
+    <div class="container-fluid w-full">
+
+        <div class="">
+            @include('parts._ticketsnav')
+        </div>
+        <div class="">
+            <h1>This is the dashboard</h1>
         </div>
     </div>
 </div>
