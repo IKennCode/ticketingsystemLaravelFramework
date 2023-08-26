@@ -6,8 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartmentController;
-
-
+use App\Http\Controllers\JobTitleController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -52,10 +51,13 @@ Route::post('/tickets/search', [TicketController::class, 'search']);
 Route::post('/tickets/cancel', [TicketController::class, 'cancel']);
 Route::post('/tickets/resolve', [TicketController::class, 'resolve']);
 
-
 //DEPARTMENTS CONTROLLER
 Route::get('/departments', [DepartmentController::class, 'departments']);
 Route::post('/departments/savedepartment', [DepartmentController::class, 'savedepartment']);
+
+//JOB TITLES CONTROLLER
+Route::get('/jobtitles', [JobTitleController::class, 'jobtitles']);
+Route::post('/jobtitles/save', [JobTitleController::class, 'savejobtitle']);
 
 
 // Route::get('/test', function(){
