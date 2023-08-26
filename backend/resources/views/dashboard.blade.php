@@ -16,6 +16,9 @@
             <strong>Resolved Ticket Count: {{$resolvedTicketCount}}</strong><br>
             <strong>Cancelled Ticket Count: {{$cancelledTicketCount}}</strong><br>
         </div>
+
+        <!--Div that will hold the pie chart-->
+        <div id="chart_div"></div>
     </div>
 </div>
 @include('parts._foot')
