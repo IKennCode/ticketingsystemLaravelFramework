@@ -30,7 +30,7 @@
                     </li>
                 </ul>
             </div> -->
-            <div class="col-sm-12 col-md-10 col-lg-10 pt-3">
+            <!-- <div class="col-sm-12 col-md-10 col-lg-10 pt-3">
                 <div class="card">
                     <div class="card-header bg-gray-200 px-4 py-2">
                         <strong>Users</strong>
@@ -76,8 +76,14 @@
                         {{ $users->links('pagination::tailwind') }}
                     </div>
                 </div>
+            </div> -->
+        </div>
+    </div>
+</div>
+@include('parts._foot')
 
-                <!-- <div class="card">
+
+<!-- <div class="card">
                     <div class="card-header"><strong>Users</strong></div>
                     <div class="card-body shadow-sm">
                         <form action="/users/search" method="post">
@@ -121,8 +127,3 @@
                     </div>
                     {{$users->onEachSide(0)->links()}}
                 </div> -->
-            </div>
-        </div>
-    </div>
-</div>
-@include('parts._foot')
