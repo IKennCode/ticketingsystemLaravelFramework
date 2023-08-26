@@ -566,6 +566,9 @@ video {
 .table {
   display: table;
 }
+.grid {
+  display: grid;
+}
 .hidden {
   display: none;
 }
@@ -602,6 +605,9 @@ video {
 .h-4 {
   height: 1rem;
 }
+.h-3\.5 {
+  height: 0.875rem;
+}
 .min-h-full {
   min-height: 100%;
 }
@@ -626,6 +632,12 @@ video {
 .w-full {
   width: 100%;
 }
+.w-3 {
+  width: 0.75rem;
+}
+.w-3\.5 {
+  width: 0.875rem;
+}
 .min-w-full {
   min-width: 100%;
 }
@@ -644,6 +656,9 @@ video {
 .cursor-pointer {
   cursor: pointer;
 }
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
 .flex-row {
   flex-direction: row;
 }
@@ -661,6 +676,9 @@ video {
 }
 .gap-1 {
   gap: 0.25rem;
+}
+.gap-4 {
+  gap: 1rem;
 }
 .space-x-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
@@ -691,11 +709,25 @@ video {
 .rounded-xl {
   border-radius: 0.75rem;
 }
+.rounded {
+  border-radius: 0.25rem;
+}
 .border {
   border-width: 1px;
 }
 .border-2 {
   border-width: 2px;
+}
+.border-dashed {
+  border-style: dashed;
+}
+.border-black {
+  --tw-border-opacity: 1;
+  border-color: rgb(2 6 23 / var(--tw-border-opacity));
+}
+.border-gray-200 {
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity));
 }
 .bg-blue {
   --tw-bg-opacity: 1;
@@ -871,6 +903,10 @@ video {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+.text-gray-400 {
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
+}
 .shadow-\[25px_25px_30px_-24px_rgb\(0\2c 0\2c 0\2c 0\.6\)\] {
   --tw-shadow: 25px 25px 30px -24px rgb(0,0,0,0.6);
   --tw-shadow-colored: 25px 25px 30px -24px var(--tw-shadow-color);
@@ -949,6 +985,11 @@ video {
     color: rgb(229 231 235 / var(--tw-text-opacity));
   }
 
+  .dark\:text-gray-500 {
+    --tw-text-opacity: 1;
+    color: rgb(107 114 128 / var(--tw-text-opacity));
+  }
+
   .dark\:hover\:bg-gray-800:hover {
     --tw-bg-opacity: 1;
     background-color: rgb(31 41 55 / var(--tw-bg-opacity));
@@ -964,6 +1005,10 @@ video {
   .sm\:mx-auto {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .sm\:ml-64 {
+    margin-left: 16rem;
   }
 
   .sm\:h-12 {

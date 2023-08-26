@@ -1,5 +1,5 @@
 <body>
-   <aside class="flex flex-col w-64 h-screen px-4 py-8 overflow-y-auto  bg-gray-900 drop-shadow-20xl">
+   <aside class="flex flex-col w-64 h-screen px-4 py-8 overflow-y-auto bg-gray-900 border-black drop-shadow-20xl">
       <a href="#" class="mx-auto">
          <!-- <img class="w-auto h-6 sm:h-12" src="../image/logo.jpg" alt=""> -->
       </a>
