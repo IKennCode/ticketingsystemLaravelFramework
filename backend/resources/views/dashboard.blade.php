@@ -1,6 +1,8 @@
-
 @include('parts._head')
-@include('parts._navbar')
+<div class="flex">
+    <div>
+        @include('parts._navbar')
+    </div>
     <div class="container-fluid">
         <div class="row mt-5 p-0 pt-1">
             <div class="col-sm-12 col-md-2 col-lg-2 p-0">
@@ -11,4 +13,5 @@
             </div>
         </div>
     </div>
+</div>
 @include('parts._foot')

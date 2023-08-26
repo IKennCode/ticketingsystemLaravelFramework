@@ -11,6 +11,11 @@ module.exports = {
       boxShadow: {
         "custom": '0 50px 100px -24px rgb(0 0 0 / 0.3)'
       },
+      backgroundColor: {
+        'navy': '#001F3F',
+      },
+      pagination: ['bg-gray-200', 'px-4', 'py-2', 'rounded-md', 'hover:bg-gray-300'],
+      
       colors: {
         transparent: 'transparent',
         current: 'currentColor',
