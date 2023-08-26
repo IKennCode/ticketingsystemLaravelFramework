@@ -53,7 +53,7 @@
          </nav>
          <form action="/logout" class="d-flex" method="post">
             @csrf
-            <a class="flex justify-center items-center px-4 py-2 mt-5 text-red-600 transition-colors duration-300 transform rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700" href="#">
+            <a class="flex justify-center items-center px-4 py-2 mt-5 text-red-600 transition-colors duration-300 transform rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
 
                <span class="text-center">
                   <button class="flex justify-center items-center whitespace-nowrap">Logout</button>
