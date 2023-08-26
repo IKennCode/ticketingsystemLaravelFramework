@@ -1,21 +1,19 @@
-<table class="min-w-full h-full table-auto border rounded my-4 p-4">
-    <thead class="h-12">
-        <tr class="text-center py-4">
-            <th>#</th>
-            <th>Status</th>
-            <th>Title</th>
-            <th>Category</th>
-            <th>Requested By</th>
-            <th>Date</th>
-            <th></th>
+<table class="min-w-full table-auto mb-4 border border-2">
+    <thead>
+        <tr class="bg-gray-300">
+            <th class="px-4 py-2 whitespace-nowrap">#</th>
+            <th class="px-4 py-2 whitespace-nowrap">Status</th>
+            <th class="px-4 py-2 whitespace-nowrap">Title</th>
+            <th class="px-4 py-2 whitespace-nowrap">Category</th>
+            <th class="px-4 py-2 whitespace-nowrap">Requested By</th>
+            <th class="px-4 py-2 whitespace-nowrap">Date</th>
+            <th class="px-4 py-2 whitespace-nowrap"></th>
         </tr>
     </thead>
     <tbody>
         @foreach ($tickets as $ticket)
-        <tr style="font-size: 0.6rem;" class="text-center
-                @php
-                    if($ticket->status == 1){
-                        echo " table-warning"; }elseif($ticket->status == 2){
+        <tr class="hover:bg-gray-100" @php if($ticket->status == 1){
+            echo " table-warning"; }elseif($ticket->status == 2){
             echo "table-info";
             }elseif($ticket->status == 3){
             echo "table-success";
@@ -26,18 +24,18 @@
             }
             @endphp
             ">
-            <td class="p-1">{{ $ticket->id }}</td>
-            <td class="p-1">{{ $ticket->status }}</td>
-            <td class="p-1">{{ $ticket->title }}</td>
-            <td class="p-1">{{ $ticket->category }}</td>
-            <td class="p-1">{{ $ticket->created_by }}</td>
-            <td class="p-1">{{ $ticket->created_at }}</td>
-            <td class="p-1">
+            <td class="px-4 py-2 whitespace-nowrap">{{ $ticket->id }}</td>
+            <td class="px-4 py-2 whitespace-nowrap">{{ $ticket->status }}</td>
+            <td class="px-4 py-2 whitespace-nowrap">{{ $ticket->title }}</td>
+            <td class="px-4 py-2 whitespace-nowrap">{{ $ticket->category }}</td>
+            <td class="px-4 py-2 whitespace-nowrap">{{ $ticket->created_by }}</td>
+            <td class="px-4 py-2 whitespace-nowrap">{{ $ticket->created_at }}</td>
+            <td class="px-4 py-2 whitespace-nowrap">
                 <form action="/tickets/viewticket/{{$ticket->id}}/{{auth()->user()->id}}" method="POST">
                     @csrf
                     <input type="hidden" name="opened_by" value="{{auth()->user()->id}}">
                     <input type="hidden" name="id" value="{{ $ticket->id }}">
-                    <button type="submit" class="btn btn-sm btn-success py-0">
+                    <button type="submit" class="px-4 py-1 border rounded bg-gray-400 hover:bg-gray-900 hover:text-white">
                         view
                     </button>
                 </form>

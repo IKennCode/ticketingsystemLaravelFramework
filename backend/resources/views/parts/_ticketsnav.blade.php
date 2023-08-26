@@ -1,14 +1,38 @@
-<div class="w-64 h-screen px-4 py-8 overflow-y-auto bg-gray-900 border-black drop-shadow-20xl">
+<div class="w-64 h-screen px-4 py-8 overflow-y-auto bg-gray-900 border-black">
     <div class="flex flex-col space-y-4">
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-        <div><a href="/tickets" class="flex-1 bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium text-center" aria-current="page">All Tickets</a></div>
-        <div><a href="/tickets/mytickets" class="flex-1 bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium text-center" aria-current="page">My Tickets</a></div>
-        <div><a href="/tickets/createticket" class="flex-1 bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium text-center">Create Tickets</a></div>
-        <div><a href="/tickets/newtickets" class="flex-1 bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium text-center">New Tickets</a></div>
-        <div><a href="/tickets/opentickets" class="flex-1 bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium text-center">Open Tickets</a></div>
-        <div><a href="/tickets/resolvedtickets" class="flex-1 bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium text-center">Resolved Tickets</a></div>
-        <div><a href="/tickets/closedtickets" class="flex-1 bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium text-center">Closed Tickets</a></div>
-        <div><a href="/tickets/cancelledtickets" class="flex-1 bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium text-center">Cancelled Tickets</a></div>
+        <a class="flex-1 items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg
+                {{ request()->is('tickets') ? 'bg-gray-100' : 'hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700' }}" href="/tickets">All Tickets</a>
+        <!-- <a class="flex-1 items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg
+                {{ request()->is('tickets') ? 'bg-gray-100' : 'hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700' }}" href="/tickets">All Tickets</a> -->
+        <a class="flex-1 items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg
+                {{ request()->is('tickets/mytickets') ? 'bg-gray-100' : 'hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700' }}" href="/tickets/mytickets">My Tickets</a>
+        <!-- <a class="flex-1 items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg
+                {{ request()->is('tickets/mytickets') ? 'bg-gray-100' : 'hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700' }}" href="/tickets/mytickets">My Tickets</a> -->
+        <a class="flex-1 items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg
+                {{ request()->is('tickets/createticket') ? 'bg-gray-100' : 'hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700' }}" href="/tickets/createticket">Create Tickets</a>
+        <!-- <a class="flex-1 items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg
+                {{ request()->is('tickets/createticket') ? 'bg-gray-100' : 'hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700' }}" href="/tickets/createticket">Create Tickets</a> -->
+        <a class="flex-1 items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg
+                {{ request()->is('tickets/newtickets') ? 'bg-gray-100' : 'hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700' }}" href="/tickets/newtickets">New Tickets</a>
+        <!-- <a class="flex-1 items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg
+                {{ request()->is('tickets/newtickets') ? 'bg-gray-100' : 'hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700' }}" href="/tickets/newtickets">New Tickets</a> -->
+        <a class="flex-1 items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg
+                {{ request()->is('tickets/opentickets') ? 'bg-gray-100' : 'hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700' }}" href="/tickets/opentickets">Open Tickets</a>
+        <!-- <a class="flex-1 items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg
+                {{ request()->is('tickets/opentickets') ? 'bg-gray-100' : 'hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700' }}" href="/tickets/opentickets">Open Tickets</a> -->
+        <a class="flex-1 items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg
+                {{ request()->is('tickets/resolvedtickets') ? 'bg-gray-100' : 'hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700' }}" href="/tickets/resolvedtickets">Resolved Tickets</a>
+        <!-- <a class="flex-1 items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg
+                {{ request()->is('tickets/resolvedtickets') ? 'bg-gray-100' : 'hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700' }}" href="/tickets/resolvedtickets">Resolved Tickets</a> -->
+        <a class="flex-1 items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg
+                {{ request()->is('tickets/closedtickets') ? 'bg-gray-100' : 'hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700' }}" href="/tickets/closedtickets">Closed Tickets</a>
+        <!-- <a class="flex-1 items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg
+                {{ request()->is('tickets/closedtickets') ? 'bg-gray-100' : 'hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700' }}" href="/tickets/closedtickets">Closed Tickets</a> -->
+        <a class="flex-1 items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg
+                {{ request()->is('tickets/cancelledtickets') ? 'bg-gray-100' : 'hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700' }}" href="/tickets/cancelledtickets">Cancelled Tickets</a>
+        <!-- <a class="flex-1 items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg
+                {{ request()->is('tickets/cancelledtickets') ? 'bg-gray-100' : 'hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700' }}" href="/tickets/cancelledtickets">Cancelled Tickets</a> -->
     </div>
 </div>
 
