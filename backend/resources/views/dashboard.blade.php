@@ -3,9 +3,9 @@
     <div>
         @include('parts._navbar')
     </div>
-    <div class="container-fluid w-full">
+    <div class="w-full">
 
-        <div class="">
+        <div class="h-full">
             @include('parts._ticketsnav')
         </div>
         <div class="">

@@ -3,13 +3,9 @@
     <div>
         @include('parts._navbar')
     </div>
-    <div class="flex-column w-full">
+    <div class="flex flex-col w-full h-full">
 
-        <div class="">
-            @include('parts._ticketsnav')
-        </div>
-
-        <div class="">
+        <div class="m-4 p-4 border-2 rounded-lg dark:border-gray-700">
             <div class="">
                 <strong>Tickets</strong> | <a class="" href="/tickets/createticket">Create Ticket</a>
             </div>
