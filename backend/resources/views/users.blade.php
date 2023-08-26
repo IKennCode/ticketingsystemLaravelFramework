@@ -3,15 +3,15 @@
     <div>
         @include('parts._navbar')
     </div>
-    <div class="container-fluid">
+    <div class="container-fluid w-full px-5">
         <div class="row mt-5 pt-1">
             <div class="bg-gray-400">
                 <div class="flex space-x-4">
                     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                    <a href="/users/newuser" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Create New User</a>
-                    <a href="/users/newuser" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Permissions</a>
-                    <a href="/users/newuser" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Departments</a>
-                    <a href="/users/newuser" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Job Titles</a>
+                    <a href="/users/newuser" class="flex-1 bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium text-center" aria-current="page">Create New User</a>
+                    <a href="/users/newuser" class="flex-1 text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium text-center">Permissions</a>
+                    <a href="/users/newuser" class="flex-1 text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium text-center">Departments</a>
+                    <a href="/users/newuser" class="flex-1 text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium text-center">Job Titles</a>
                 </div>
             </div>
             <!-- <div class="col-sm-12 col-md-2 col-lg-2 bg-dark pt-5">
