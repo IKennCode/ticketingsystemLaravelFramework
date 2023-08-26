@@ -36,7 +36,7 @@
                         <strong>Users</strong>
                     </div>
                     <div class="card-body shadow-sm p-4">
-                        <form action="/users/search" method="post" class="mb-4">
+                        <form action="/users/search" method="post" class="py-4 h-full w-1/2">
                             @csrf
                             <div class="flex items-center">
                                 <input type="text" class="form-input flex-1 mr-2" placeholder="Search" name="search">
