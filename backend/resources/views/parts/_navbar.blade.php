@@ -1,5 +1,5 @@
 
-
+<!-- New Side Bar Design -->
 <body>
 <aside class="flex flex-col w-64 h-screen px-4 py-8 overflow-y-auto  border-r rtl:border-r-0 rtl:border-l bg-gray-100 rounded-2xl drop-shadow-2xl">
     <a href="#" class="mx-auto">
