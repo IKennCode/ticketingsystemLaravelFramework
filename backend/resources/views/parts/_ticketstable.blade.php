@@ -25,10 +25,10 @@
             @endphp
             ">
             <td class="px-4 py-2 whitespace-nowrap">{{ $ticket->id }}</td>
-            <td class="px-4 py-2 whitespace-nowrap">{{ $ticket->status }}</td>
+            <td class="px-4 py-2 whitespace-nowrap text-center">{{ $ticket->status }}</td>
             <td class="px-4 py-2 whitespace-nowrap">{{ $ticket->title }}</td>
-            <td class="px-4 py-2 whitespace-nowrap">{{ $ticket->category }}</td>
-            <td class="px-4 py-2 whitespace-nowrap">{{ $ticket->created_by }}</td>
+            <td class="px-4 py-2 whitespace-nowrap text-center">{{ $ticket->category }}</td>
+            <td class="px-4 py-2 whitespace-nowrap text-center">{{ $ticket->created_by }}</td>
             <td class="px-4 py-2 whitespace-nowrap">{{ $ticket->created_at }}</td>
             <td class="px-4 py-2 whitespace-nowrap">
                 <form action="/tickets/viewticket/{{$ticket->id}}/{{auth()->user()->id}}" method="POST">

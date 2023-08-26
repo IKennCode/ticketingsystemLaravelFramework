@@ -14,7 +14,7 @@
                 @csrf
                 <div class="flex items-center">
                     <input type="text" class="w-1/3 border rounded px-4 py-2 mr-4" placeholder="Search" name="search">
-                    <button class="border rounded px-6 py-2" type="submit">Go</button>
+                    <button class="border rounded px-6 py-2 px-4 py-1 border rounded bg-gray-400 hover:bg-gray-900 hover:text-white" type="submit">Go</button>
                 </div>
             </form>
             <div class="overflow-x-auto">
