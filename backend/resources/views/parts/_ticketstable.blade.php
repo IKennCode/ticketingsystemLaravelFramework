@@ -1,6 +1,6 @@
-<table class="min-w-full table-auto">
-    <thead>
-        <tr class="text-center table-dark">
+<table class="min-w-full h-full table-auto border rounded my-4 p-4">
+    <thead class="h-12">
+        <tr class="text-center py-4">
             <th>#</th>
             <th>Status</th>
             <th>Title</th>
