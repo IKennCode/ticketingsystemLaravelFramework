@@ -1,19 +1,13 @@
 @include('parts._head')
-<<<<<<< HEAD
-
-
-<div class="flex">
-=======
 <div class="flex h-screen">
->>>>>>> 5e48415735c2ff0af91b1c51c8483c5f353c2323
     <div>
         @include('parts._navbar')
     </div>
     <div class="">
 
         <div class="">
-            <div class="card">
-                <div class="card-header bg-gray-200 px-4 py-2">
+            <div class="">
+                <div class=" bg-gray-200 px-4 py-2">
                     <strong>Users</strong>
                 </div>
                 <div class="card-body shadow-sm p-4">
