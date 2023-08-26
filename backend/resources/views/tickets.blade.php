@@ -13,8 +13,8 @@
                 <form action="/tickets/search" method="post">
                     @csrf
                     <div class="input-group w-full h-full">
-                        <input type="text" class="form-control border rounded w-1/3 px-4 py-2" placeholder="Search" name="search">
-                        <button class="mx-4 border rounded px-4 py-2" type="submit">Go</button>
+                        <input type="text" class="form-control border border-2 border-gray-600 rounded w-1/3 px-4 py-2" placeholder="Search" name="search">
+                        <button class="mx-4 border border-2 border-gray-600 rounded px-4 py-2" type="submit">Go</button>
                     </div>
                 </form>
                 @include('parts._ticketstable')

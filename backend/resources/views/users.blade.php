@@ -6,20 +6,20 @@
     <div class="">
 
         <div class="">
-            <div class="card">
-                <div class="card-header bg-gray-200 px-4 py-2">
+            <div class="">
+                <div class="bg-gray-400 px-4 py-2">
                     <strong>Users</strong>
                 </div>
-                <div class="card-body shadow-sm p-4">
+                <div class="p-4">
                     <form action="/users/search" method="post" class="mb-4">
                         @csrf
-                        <div class="flex items-center p-2 mt-5 rounded-xl border lg:px-8">
-                            <input type="text" class="form-input flex-1 mr-2" placeholder="Search" name="search">
-                            <button class="btn btn-success" type="submit">Go</button>
+                        <div class="flex items-center">
+                            <input type="text" class="form-input w-1/3 h-12 px-4 py-2 mr-4 border rounded" placeholder="Search" name="search">
+                            <button class="w-1/8 h-12 px-4 py-2 border rounded" type="submit">Go</button>
                         </div>
                     </form>
                     <div class="overflow-x-auto">
-                        <table class="min-w-full table-auto">
+                        <table class="min-w-full table-auto border rounded border-gray-600 border-2 mb-4">
                             <thead>
                                 <tr class="bg-gray-300">
                                     <th class="px-4 py-2">#</th>
