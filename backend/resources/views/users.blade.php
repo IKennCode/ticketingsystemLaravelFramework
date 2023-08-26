@@ -1,32 +1,10 @@
 @include('parts._head')
-
-<div class="p-4 sm:ml-64">
-   <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
-      <div class="grid grid-cols-3 gap-4 mb-4">
-         <div class="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
-            <p class="text-2xl text-gray-400 dark:text-gray-500">
-               <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-               </svg>
-            </p>
-         </div>
-         <div class="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
-            <p class="text-2xl text-gray-400 dark:text-gray-500">
-               <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-               </svg>
-            </p>
-         </div>
-        </div>
-    </div>
-</div>
-
 <div class="flex">
     <div>
         @include('parts._navbar')
     </div>
     <div class="container-fluid w-full px-5">
-        <div class="row mt-5 pt-1">
+        <div class="row m-5">
             <div class="bg-gray-400">
                 <div class="flex space-x-4">
                     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
@@ -58,23 +36,23 @@
                         <strong>Users</strong>
                     </div>
                     <div class="card-body shadow-sm p-4">
-                        <form action="/users/search" method="post" class="py-4 h-full w-1/2">
+                        <form action="/users/search" method="post" class="my-4 h-full w-1/2">
                             @csrf
-                            <div class="flex items-center p-2 mt-5 rounded-xl border lg:px-8">
-                                <input type="text" class="form-input flex-1 mr-2" placeholder="Search" name="search">
-                                <button class="btn btn-success" type="submit">Go</button>
+                            <div class="flex items-center h-10">
+                                <input type="text" class="form-input flex-1 h-full rounded-xl border p-4" placeholder="Search" name="search">
+                                <button class="btn btn-success w-1/5 h-full mx-4 rounded-xl border bg-gray-900 text-white" type="submit">Go</button>
                             </div>
                         </form>
                         <div class="overflow-x-auto">
                             <table class="min-w-full table-auto">
                                 <thead>
                                     <tr class="bg-gray-300">
-                                        <th class="px-4 py-2">#</th>
-                                        <th class="px-4 py-2">Name</th>
-                                        <th class="px-4 py-2">Username</th>
-                                        <th class="px-4 py-2">Department</th>
-                                        <th class="px-4 py-2">Job Title</th>
-                                        <th class="px-4 py-2"></th>
+                                        <th class="text-center">#</th>
+                                        <th class="text-center">Name</th>
+                                        <th class="text-center w-1/7">Username</th>
+                                        <th class="text-center w-1/7">Department</th>
+                                        <th class="text-center w-1/7">Job Title</th>
+                                        <th class="text-center w-1/7"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -83,8 +61,8 @@
                                         <td class="px-4 py-2">{{ $user->id }}</td>
                                         <td class="px-4 py-2">{{ $user->last_name }}, {{ $user->first_name }} {{ $user->middle_name }}</td>
                                         <td class="px-4 py-2">{{ $user->username }}</td>
-                                        <td class="px-4 py-2">{{ $user->department }}</td>
-                                        <td class="px-4 py-2">{{ $user->job_title }}</td>
+                                        <td class="px-4 py-2 text-center">{{ $user->department }}</td>
+                                        <td class="px-4 py-2 text-center">{{ $user->job_title }}</td>
                                         <td class="px-4 py-2">
                                             <button class="btn btn-sm btn-success">
                                                 View
