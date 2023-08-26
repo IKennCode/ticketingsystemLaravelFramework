@@ -9,8 +9,8 @@
                 <div class="flex space-x-4">
                     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                     <a href="/users/newuser" class="flex-1 bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium text-center" aria-current="page">Create New User</a>
-                    <a href="/users/newuser" class="flex-1 text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium text-center">Permissions</a>
-                    <a href="/users/newuser" class="flex-1 text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium text-center">Departments</a>
+                    <a href="#" class="flex-1 text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium text-center">Permissions</a>
+                    <a href="/departments/newdepartment" class="flex-1 text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium text-center">Departments</a>
                     <a href="/users/newuser" class="flex-1 text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium text-center">Job Titles</a>
                 </div>
             </div>
@@ -73,7 +73,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        {{ $users->links('pagination::tailwind')}}
+                        {{ $users->links('pagination::tailwind') }}
                     </div>
                 </div>
 

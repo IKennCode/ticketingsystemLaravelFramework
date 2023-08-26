@@ -21,7 +21,7 @@
                 {{$tickets->links('pagination::tailwind')}}
             </div>
         </div>
-
+        @include('parts._ticketsnav')
     </div>
 </div>
 @include('parts._foot')
