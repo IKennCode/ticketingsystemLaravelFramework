@@ -1,4 +1,4 @@
-<table class="min-w-full table-auto mb-4 border border-2">
+<table class="min-w-full table-auto mb-4  border-2 bg-gray-100">
     <thead>
         <tr class="bg-gray-300">
             <th class="px-2 py-2 whitespace-nowrap">#</th>

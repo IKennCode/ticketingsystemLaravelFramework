@@ -1,5 +1,5 @@
 @include('parts._head')
-<div class="flex justify-center items-center h-screen">
+<div class="flex justify-center items-center h-screen bg-gray-100">
     <div class=w-64>
         @include('parts._navbar')
     </div>
@@ -14,7 +14,7 @@
                 <div class="flex items-center">
                     <input type="text" name="department_name" class="w-1/3 border rounded px-4 py-2 mr-4" id="department_name" placeholder="Department" autofocus required>
                     {{-- <input type="hidden" name="user_id" value="{{auth()->user()->id}}"> --}}
-                    <button class="border rounded px-6 py-2 border rounded bg-gray-400 hover:bg-gray-900 hover:text-white" type="submit" Value="save">Save</button>
+                    <button class=" px-6 py-2 border rounded bg-gray-400 hover:bg-gray-900 hover:text-white" type="submit" Value="save">Save</button>
                 </div>
             </form>
             @include('parts._departmentstable')
