@@ -18,9 +18,13 @@
             <td class="px-2 py-2 whitespace-nowrap text-center">{{ $user->department }}</td>
             <td class="px-2 py-2 whitespace-nowrap text-center">{{ $user->job_title }}</td>
             <td class="px-2 py-2 whitespace-nowrap">
-                <button class="px-2 py-1 border rounded bg-gray-400 hover:bg-gray-900 hover:text-white">
-                    <i class="bi bi-three-dots-vertical"></i>
-                </button>
+                <form action="/users/user" method="post">
+                    @csrf
+                    <input type="hidden" name="user_id" value="{{$user->id}}">
+                    <button class="px-2 py-1 border rounded bg-gray-400 hover:bg-gray-900 hover:text-white">
+                        <i class="bi bi-three-dots-vertical"></i>
+                    </button>
+                </form>
             </td>
         </tr>
         @endforeach

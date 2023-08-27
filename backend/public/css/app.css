@@ -2551,6 +2551,15 @@ video {
 .mt-8 {
   margin-top: 2rem;
 }
+<<<<<<< HEAD
+=======
+.ml-4 {
+  margin-left: 1rem;
+}
+.ml-9 {
+  margin-left: 2.25rem;
+}
+>>>>>>> f72f09380e36273cc27ccdf0c4de970622228626
 .ml-1 {
   margin-left: 0.25rem;
 }
@@ -2635,6 +2644,15 @@ video {
 .w-full {
   width: 100%;
 }
+<<<<<<< HEAD
+=======
+.w-1\/4 {
+  width: 25%;
+}
+.w-40 {
+  width: 10rem;
+}
+>>>>>>> f72f09380e36273cc27ccdf0c4de970622228626
 .min-w-full {
   min-width: 100%;
 }
@@ -3090,6 +3108,13 @@ video {
     display: none;
   }
 
+<<<<<<< HEAD
+=======
+  .sm\:h-12 {
+    height: 3rem;
+  }
+
+>>>>>>> f72f09380e36273cc27ccdf0c4de970622228626
   .sm\:w-full {
     width: 100%;
   }
