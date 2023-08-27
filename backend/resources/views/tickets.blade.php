@@ -1,5 +1,5 @@
 @include('parts._head')
-<div class="flex justify-center items-center h-screen relative">
+<div class="flex justify-center items-center h-screen">
     <div class="w-64">
         @include('parts._navbar')
     </div>

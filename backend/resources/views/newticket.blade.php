@@ -1,18 +1,18 @@
 @include('parts._head')
 <div class="flex justify-center items-center h-screen">
-    <div>
+    <div class="w-64">
         @include('parts._navbar')
     </div>
-    <div class="w-full h-full px-4">
+    <div class="w-full h-screen">
         <div class="bg-gray-200 px-4 py-2">
             <strong>New Ticket</strong>
         </div>
-        <div class="p-4">
-            <form action="/tickets/createticket/save" method="post" class="mb-4">
+        <div class="p-2">
+            <form action="/tickets/createticket/save" method="post" class="w-full mb-4">
                 @csrf
                 <div class="mb-3 mt-3">
                     <label for="title" class="w-1/4 px-4 py-2 mr-4">Title:</label>
-                    <input type="text" class="w-1/3 border rounded px-4 py-2 mr-4" id="title" placeholder="Ticket title" name="title">
+                    <input type="text" class="w-1/3 border rounded px-6 py-2 ml-9" id="title" placeholder="Ticket title" name="title">
                 </div>
                 <div class="mb-3 mt-3">
                     <label for="category" class="w-1/4 px-4 py-2 mr-4">Category:</label>
@@ -35,7 +35,7 @@
                                     </select>
                                 </div> --}}
                 <div class="mb-3">
-                    <label for="description" class="w-1/4 px-4 py-2 mr-4">Description:</label>
+                    <label for="description" class="w-1/4 px-4 py-2">Description:</label>
                     <textarea class="w-1/3 border rounded px-4 py-2 mr-4" rows="5" id="description" name="description"></textarea>
                 </div>
                 <div class="form-check mb-3">
@@ -49,7 +49,9 @@
         </div>
     </div>
 
-    @include('parts._ticketsnav')
+    <div class="w-64">
+        @include('parts._ticketsnav')
+    </div>
 
 </div>
 
