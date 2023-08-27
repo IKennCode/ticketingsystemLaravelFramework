@@ -1,7 +1,4 @@
 <aside class="flex flex-col w-64 h-screen px-4 py-8 overflow-y-auto bg-gray-900 border-black drop-shadow-20xl">
-   <a href="#" class="mx-auto">
-      <!-- <img class="w-auto h-6 sm:h-12" src="../image/logo.jpg" alt=""> -->
-   </a>
 
    <div class="flex flex-col items-center mt-6 -mx-2">
       <img class="object-cover w-24 h-24 mx-2 rounded-full" src="../image/myprofile.jpg" alt="avatar">

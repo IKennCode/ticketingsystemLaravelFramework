@@ -1,14 +1,14 @@
 @include('parts._head')
 <div class="flex justify-center items-center h-screen">
-    <div>
+    <div class=w-64>
         @include('parts._navbar')
     </div>
 
-    <div class="w-full h-full px-4">
+    <div class="w-full h-screen">
         <div class="bg-gray-200 px-4 py-2">
             <strong>Departments</strong>
         </div>
-        <div class="p-4">
+        <div class="p-2">
             <form action="/departments/savedepartment" method="post" class="mb-4">
                 @csrf
                 <div class="flex items-center">
@@ -20,6 +20,9 @@
             @include('parts._departmentstable')
         </div>
     </div>
-    @include('parts._usersnav')
+
+    <div class="w-64">
+        @include('parts._usersnav')
+    </div>
 </div>
 @include('parts._foot')

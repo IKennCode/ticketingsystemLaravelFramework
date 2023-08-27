@@ -14,7 +14,7 @@
             <td class="px-4 py-2 whitespace-nowrap text-center">{{$department->description}}</td>
             <td class="px-4 py-2 whitespace-nowrap text-center">{{$department->status}}</td>
             <td class="px-4 py-2 whitespace-nowrap text-center">
-                <button><i class="bi bi-three-dots-vertical"></i></button>
+                <button class="px-4 py-1 border rounded bg-gray-400 hover:bg-gray-900 hover:text-white"><i class="bi bi-three-dots-vertical"></i></button>
             </td>
         </tr>
         @endforeach
