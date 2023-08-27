@@ -7,11 +7,16 @@ use App\Models\Tickets;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Pagination\Paginator;
 use App\Providers\AppServiceProvider;
+use Illuminate\Support\Facades\DB;
 
 class TicketController extends Controller
 {
     public function tickets(){
-        $data = Tickets::orderBy('id', 'desc')->paginate(10);
+        // $data = Tickets::orderBy('id', 'desc')->paginate(10);
+        $data = DB::table('tickets')
+        ->join('users', 'tickets.created_by', '=', 'users.id')
+        ->select('tickets.*', 'users.first_name as first_name', 'users.last_name as last_name')
+        ->orderBy('id', 'desc')->paginate(10);
         return view('tickets', ['tickets' => $data]);
     }
     public function alltickets(){

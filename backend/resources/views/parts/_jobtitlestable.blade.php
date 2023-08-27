@@ -15,7 +15,7 @@
             <td class="px-4 py-2 whitespace-nowrap text-center">{{$jobtitle->description}}</td>
             <td class="px-4 py-2 whitespace-nowrap text-center">{{$jobtitle->fk_department}}</td>
             <td class="px-4 py-2 whitespace-nowrap text-center">{{$jobtitle->is_active}}</td>
-            <td class="px-4 py-2 whitespace-nowrap text-center"><button class="px-4 py-1 border rounded bg-gray-400 hover:bg-gray-900 hover:text-white">view</button></td>
+            <td class="px-4 py-2 whitespace-nowrap text-center"><button class="px-4 py-1 border rounded bg-gray-400 hover:bg-gray-900 hover:text-white"><i class="bi bi-three-dots-vertical"></i></button></td>
         </tr>
         @endforeach
     </tbody>
