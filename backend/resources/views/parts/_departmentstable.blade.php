@@ -4,6 +4,7 @@
             <th class="px-4 py-2 whitespace-nowrap">#</th>
             <th class="px-4 py-2 whitespace-nowrap">DEPARTMENT</th>
             <th class="px-4 py-2 whitespace-nowrap">STATUS</th>
+            <th class="px-4 py-2 whitespace-nowrap"></th>
         </tr>'
     </thead>
     <tbody>
@@ -12,6 +13,9 @@
             <td class="px-4 py-2 whitespace-nowrap text-center">{{$department->id}}</td>
             <td class="px-4 py-2 whitespace-nowrap text-center">{{$department->description}}</td>
             <td class="px-4 py-2 whitespace-nowrap text-center">{{$department->status}}</td>
+            <td class="px-4 py-2 whitespace-nowrap text-center">
+                <button><i class="bi bi-three-dots-vertical"></i></button>
+            </td>
         </tr>
         @endforeach
     </tbody>

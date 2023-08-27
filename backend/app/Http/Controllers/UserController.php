@@ -9,12 +9,18 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Logs;
 use Illuminate\Contracts\Validation\Rule;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
     // DISPLAY SAMPLE USERS TABLE
     public function users(){
-        $data = User::orderBy('id', 'desc')->paginate(10);
+        // $data = User::orderBy('id', 'desc')->paginate(10);
+        $data = DB::table('users')
+        ->join('departments', 'users.department', '=', 'departments.id')
+        ->join('job_titles', 'users.job_title', '=', 'job_titles.id')
+        ->select('users.*', 'departments.description as department', 'job_titles.description as job_title')
+        ->orderBy('id', 'desc')->paginate(10);
         return view('users', ['users' => $data]);
     }
 
