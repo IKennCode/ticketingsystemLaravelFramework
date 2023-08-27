@@ -35,8 +35,8 @@
                     @csrf
                     <input type="hidden" name="opened_by" value="{{auth()->user()->id}}">
                     <input type="hidden" name="id" value="{{ $ticket->id }}">
-                    <button type="submit" class="px-4 py-1 border rounded bg-gray-400 hover:bg-gray-900 hover:text-white">
-                        view
+                    <button type="submit" class="px-2 py-1 border rounded bg-gray-400 hover:bg-gray-900 hover:text-white">
+                        <i class="bi bi-three-dots-vertical"></i>
                     </button>
                 </form>
             </td>

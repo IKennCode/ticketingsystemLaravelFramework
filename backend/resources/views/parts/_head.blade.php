@@ -9,6 +9,5 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     <link rel="icon" type="image/jpg" href="../image/logo.jpg" />
-
 </head>
 <body>
