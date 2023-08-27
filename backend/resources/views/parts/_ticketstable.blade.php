@@ -1,13 +1,13 @@
 <table class="min-w-full table-auto mb-4 border border-2">
     <thead>
         <tr class="bg-gray-300">
-            <th class="px-4 py-2 whitespace-nowrap">#</th>
-            <th class="px-4 py-2 whitespace-nowrap">Status</th>
-            <th class="px-4 py-2 whitespace-nowrap">Title</th>
-            <th class="px-4 py-2 whitespace-nowrap">Category</th>
-            <th class="px-4 py-2 whitespace-nowrap">Requested By</th>
-            <th class="px-4 py-2 whitespace-nowrap">Date</th>
-            <th class="px-4 py-2 whitespace-nowrap"></th>
+            <th class="px-2 py-2 whitespace-nowrap">#</th>
+            <th class="px-2 py-2 whitespace-nowrap">Status</th>
+            <th class="px-2 py-2 whitespace-nowrap">Title</th>
+            <th class="px-2 py-2 whitespace-nowrap">Category</th>
+            <th class="px-2 py-2 whitespace-nowrap">Requested By</th>
+            <th class="px-2 py-2 whitespace-nowrap">Date</th>
+            <th class="px-2 py-2 whitespace-nowrap"></th>
         </tr>
     </thead>
     <tbody>
@@ -24,13 +24,13 @@
             }
             @endphp
             ">
-            <td class="px-4 py-2 whitespace-nowrap">{{ $ticket->id }}</td>
-            <td class="px-4 py-2 whitespace-nowrap text-center">{{ $ticket->status }}</td>
-            <td class="px-4 py-2 whitespace-nowrap">{{ $ticket->title }}</td>
-            <td class="px-4 py-2 whitespace-nowrap text-center">{{ $ticket->category }}</td>
-            <td class="px-4 py-2 whitespace-nowrap text-center">{{ $ticket->first_name }} {{ $ticket->last_name }}</td>
-            <td class="px-4 py-2 whitespace-nowrap">{{ $ticket->created_at }}</td>
-            <td class="px-4 py-2 whitespace-nowrap">
+            <td class="px-2 py-2 whitespace-nowrap">{{ $ticket->id }}</td>
+            <td class="px-2 py-2 whitespace-nowrap text-center">{{ $ticket->status }}</td>
+            <td class="px-2 py-2 whitespace-nowrap">{{ $ticket->title }}</td>
+            <td class="px-2 py-2 whitespace-nowrap text-center">{{ $ticket->category }}</td>
+            <td class="px-2 py-2 whitespace-nowrap text-center">{{ $ticket->first_name }} {{ $ticket->last_name }}</td>
+            <td class="px-2 py-2 whitespace-nowrap">{{ $ticket->created_at }}</td>
+            <td class="px-2 py-2 whitespace-nowrap">
                 <form action="/tickets/viewticket/{{$ticket->id}}/{{auth()->user()->id}}" method="POST">
                     @csrf
                     <input type="hidden" name="opened_by" value="{{auth()->user()->id}}">

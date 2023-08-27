@@ -2467,14 +2467,59 @@ video {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+.container {
+  width: 100%;
+}
+@media (min-width: 640px) {
+
+  .container {
+    max-width: 640px;
+  }
+}
+@media (min-width: 768px) {
+
+  .container {
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px) {
+
+  .container {
+    max-width: 1024px;
+  }
+}
+@media (min-width: 1280px) {
+
+  .container {
+    max-width: 1280px;
+  }
+}
+@media (min-width: 1536px) {
+
+  .container {
+    max-width: 1536px;
+  }
+}
+.absolute {
+  position: absolute;
+}
 .relative {
   position: relative;
+}
+.right-0 {
+  right: 0px;
+}
+.left-0 {
+  left: 0px;
 }
 .z-0 {
   z-index: 0;
 }
 .m-3 {
   margin: 0.75rem;
+}
+.m-0 {
+  margin: 0px;
 }
 .-mx-2 {
   margin-left: -0.5rem;
@@ -2616,6 +2661,33 @@ video {
 }
 .w-1\/4 {
   width: 25%;
+}
+.w-screen {
+  width: 100vw;
+}
+.w-48 {
+  width: 12rem;
+}
+.w-1\/5 {
+  width: 20%;
+}
+.w-3\/5 {
+  width: 60%;
+}
+.w-1\/6 {
+  width: 16.666667%;
+}
+.w-2\/6 {
+  width: 33.333333%;
+}
+.w-20 {
+  width: 5rem;
+}
+.w-40 {
+  width: 10rem;
+}
+.w-60 {
+  width: 15rem;
 }
 .min-w-full {
   min-width: 100%;
