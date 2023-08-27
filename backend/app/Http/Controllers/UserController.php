@@ -24,6 +24,13 @@ class UserController extends Controller
         return view('users', ['users' => $data]);
     }
 
+    public function user(Request $request){
+        $user_id = $request->input('user_id');
+        $data = DB::table('users')
+        ->where('id', '=', $user_id)->get();
+        return view('user', ['users' => $data]);
+    }
+
     public function newuser(){
         return view('new_user');
     }

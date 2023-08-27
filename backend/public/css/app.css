@@ -2551,6 +2551,18 @@ video {
 .ml-9 {
   margin-left: 2.25rem;
 }
+.ml-1 {
+  margin-left: 0.25rem;
+}
+.ml-10 {
+  margin-left: 2.5rem;
+}
+.ml-20 {
+  margin-left: 5rem;
+}
+.mr-10 {
+  margin-right: 2.5rem;
+}
 .block {
   display: block;
 }
@@ -2589,6 +2601,9 @@ video {
 }
 .h-screen {
   height: 100vh;
+}
+.max-h-screen {
+  max-height: 100vh;
 }
 .min-h-full {
   min-height: 100%;
