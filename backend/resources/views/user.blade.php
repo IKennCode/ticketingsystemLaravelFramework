@@ -12,6 +12,7 @@
         <p>{{$user->job_title}}</p>
         <p>{{$user->permission}}</p>
         <p>{{$user->username}}</p>
+        <p>{{$user->status}}</p>
         <p>
             <input type="text" placeholder="change_password">
             <input type="submit" value="Update Password">
