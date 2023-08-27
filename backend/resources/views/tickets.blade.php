@@ -22,8 +22,8 @@
         </div>
 
     </div>
-    <div>
-        @include('parts._ticketsnav')
-    </div>
+
+    @include('parts._ticketsnav')
+
 </div>
 @include('parts._foot')

@@ -14,64 +14,46 @@
                 @csrf
                 <div class="flex items-center">
                     <input type="text" class="w-1/3 border rounded px-4 py-2 mr-4" placeholder="Search" name="search">
-                    <button class="border rounded px-6 py-2 px-4 py-1 border rounded bg-gray-400 hover:bg-gray-900 hover:text-white" type="submit">Go</button>
+                    <button class="border rounded px-6 py-2 border rounded bg-gray-400 hover:bg-gray-900 hover:text-white" type="submit">Go</button>
                 </div>
             </form>
-            <div class="overflow-x-auto">
-                <table class="min-w-full table-auto mb-4 border border-2">
-                    <thead>
-                        <tr class="bg-gray-300">
-                            <th class="px-4 py-2 whitespace-nowrap">#</th>
-                            <th class="px-4 py-2 whitespace-nowrap">Name</th>
-                            <th class="px-4 py-2 whitespace-nowrap">Username</th>
-                            <th class="px-4 py-2 whitespace-nowrap">Department</th>
-                            <th class="px-4 py-2 whitespace-nowrap">Job Title</th>
-                            <th class="px-4 py-2 whitespace-nowrap"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($users as $user)
-                        <tr class="hover:bg-gray-100">
-                            <td class="px-4 py-2 whitespace-nowrap">{{ $user->id }}</td>
-                            <td class="px-4 py-2 whitespace-nowrap">{{ $user->last_name }}, {{ $user->first_name }} {{ $user->middle_name }}</td>
-                            <td class="px-4 py-2 whitespace-nowrap">{{ $user->username }}</td>
-                            <td class="px-4 py-2 whitespace-nowrap text-center">{{ $user->department }}</td>
-                            <td class="px-4 py-2 whitespace-nowrap text-center">{{ $user->job_title }}</td>
-                            <td class="px-4 py-2 whitespace-nowrap">
-                                <button class="px-4 py-1 border rounded bg-gray-400 hover:bg-gray-900 hover:text-white">
-                                    View
-                                </button>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
+
+            <table class="min-w-full table-auto mb-4 border border-2">
+                <thead>
+                    <tr class="bg-gray-300">
+                        <th class="px-4 py-2 whitespace-nowrap">#</th>
+                        <th class="px-4 py-2 whitespace-nowrap">Name</th>
+                        <th class="px-4 py-2 whitespace-nowrap">Username</th>
+                        <th class="px-4 py-2 whitespace-nowrap">Department</th>
+                        <th class="px-4 py-2 whitespace-nowrap">Job Title</th>
+                        <th class="px-4 py-2 whitespace-nowrap"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($users as $user)
+                    <tr class="hover:bg-gray-100">
+                        <td class="px-4 py-2 whitespace-nowrap">{{ $user->id }}</td>
+                        <td class="px-4 py-2 whitespace-nowrap">{{ $user->last_name }}, {{ $user->first_name }} {{ $user->middle_name }}</td>
+                        <td class="px-4 py-2 whitespace-nowrap">{{ $user->username }}</td>
+                        <td class="px-4 py-2 whitespace-nowrap text-center">{{ $user->department }}</td>
+                        <td class="px-4 py-2 whitespace-nowrap text-center">{{ $user->job_title }}</td>
+                        <td class="px-4 py-2 whitespace-nowrap">
+                            <button class="px-4 py-1 border rounded bg-gray-400 hover:bg-gray-900 hover:text-white">
+                                View
+                            </button>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+
             {{ $users->links('pagination::tailwind') }}
         </div>
 
     </div>
 
-    <div class="w-64 h-screen px-4 py-8 overflow-y-auto bg-gray-900 border-black">
-        <div class="flex flex-col space-y-4">
+    @include('parts._usersnav')
 
-            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <a class="flex-1 items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg
-                {{ request()->is('users/newuser') ? 'bg-gray-100' : 'hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700' }}" href="/users/newuser">New User</a>
-            <!-- <a class="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg
-                {{ request()->is('users/newuser') ? 'bg-gray-100' : 'hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700' }}" href="/users/newuser"> -->
-            <a class="flex-1 items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg
-                {{ request()->is('permissions') ? 'bg-gray-100' : 'hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700' }}" href="/permissions">Permissions</a>
-            <!-- <a class="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg
-                {{ request()->is('departments') ? 'bg-gray-100' : 'hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700' }}" href="/departments"> -->
-            <a class="flex-1 items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg
-                {{ request()->is('departments') ? 'bg-gray-100' : 'hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700' }}" href="/departments">Departments</a>
-
-            <a class="flex-1 items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg
-                {{ request()->is('jobtitles') ? 'bg-gray-100' : 'hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700' }}" href="/jobtitles">Job Titles</a>
-
-        </div>
-    </div>
 </div>
 
 
