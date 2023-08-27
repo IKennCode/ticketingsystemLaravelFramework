@@ -7,6 +7,7 @@ use App\Http\Controllers\TicketController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\JobTitleController;
+use App\Http\Controllers\PermissionController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -23,7 +24,7 @@ use Illuminate\Support\Facades\Auth;
 // LOGIN CONTROLLERS
 Route::get('/', [LoginController:: class, 'index'])->name('login');
 Route::post('/login', [LoginController:: class, 'authenticate']);
-Route::post('/logout', [LoginController:: class, 'logout']);
+Route::post('/logout', [LoginController:: class, 'logout'])->middleware('auth');
 
 //DASHBOARD CONTROLLERS
 Route::get('/dashboard', [DashboardController:: class, 'dashboard'])->middleware('auth');
@@ -59,6 +60,10 @@ Route::post('/departments/savedepartment', [DepartmentController::class, 'savede
 //JOB TITLES CONTROLLER
 Route::get('/jobtitles', [JobTitleController::class, 'jobtitles'])->middleware('auth');
 Route::post('/jobtitles/save', [JobTitleController::class, 'savejobtitle'])->middleware('auth');
+
+// PERMISSIONS CONTROLLER
+Route::get('/permissions', [PermissionController::class, 'permissions']);
+Route::post('/permissions/save', [PermissionController::class, 'save']);
 
 
 // Route::get('/test', function(){
