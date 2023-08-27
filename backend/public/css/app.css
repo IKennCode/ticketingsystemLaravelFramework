@@ -629,9 +629,6 @@ video {
 .w-full {
   width: 100%;
 }
-.w-1\/4 {
-  width: 25%;
-}
 .min-w-full {
   min-width: 100%;
 }
@@ -685,9 +682,6 @@ video {
 }
 .overflow-hidden {
   overflow: hidden;
-}
-.overflow-x-auto {
-  overflow-x: auto;
 }
 .overflow-y-auto {
   overflow-y: auto;
