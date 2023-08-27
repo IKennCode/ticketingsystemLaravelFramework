@@ -2545,6 +2545,9 @@ video {
 .mt-8 {
   margin-top: 2rem;
 }
+.ml-4 {
+  margin-left: 1rem;
+}
 .block {
   display: block;
 }
@@ -2610,6 +2613,9 @@ video {
 }
 .w-full {
   width: 100%;
+}
+.w-1\/4 {
+  width: 25%;
 }
 .min-w-full {
   min-width: 100%;
