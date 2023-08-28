@@ -25,7 +25,19 @@
             @endphp
             ">
             <td class="px-2 py-1 whitespace-nowrap">{{ $ticket->id }}</td>
-            <td class="px-2 py-1 whitespace-nowrap text-center">{{ $ticket->status }}</td>
+            <td class="px-2 py-1 whitespace-nowrap text-center">
+                @if($ticket->status == 1)
+                    New
+                @elseif($ticket->status == 2)
+                    Acknowledged
+                @elseif($ticket->status == 3)
+                    Resolved
+                @elseif($ticket->status == 4)
+                    Closed
+                @else
+                    Cancelled
+                @endif
+            </td>
             <td class="px-2 py-1 whitespace-nowrap">{{ $ticket->title }}</td>
             <td class="px-2 py-1 whitespace-nowrap text-center">{{ $ticket->category }}</td>
             <td class="px-2 py-1 whitespace-nowrap text-center">{{ $ticket->first_name }} {{ $ticket->last_name }}</td>
