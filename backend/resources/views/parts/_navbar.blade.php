@@ -52,7 +52,7 @@
          <a class="flex justify-center items-center px-4 py-2 mt-5 text-red-100 transition-colors transform rounded-lg bg-red-700 hover:bg-gray-100 dark:hover:bg-red-600 dark:hover:text-gray-200 hover:text-gray-700 font-bold  hover:scale-110 duration-100">
 
             <span class="text-center text-xs">
-               <button class="flex justify-center items-center whitespace-nowrap">Logout</button>
+               <button class="flex justify-center items-center whitespace-nowrap"><i class="bi bi-box-arrow-right"></i> &nbsp; Logout</button>
             </span>
 
          </a>
