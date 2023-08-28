@@ -4,13 +4,8 @@
         @include('parts._navbar')
     </div>
     <div class="w-full h-screen">
-<<<<<<< HEAD
-        <div class="bg-gray-200 px-4 py-2">
-            <strong>Tickets</strong> | <a class="px-4 py-1 border rounded bg-gray-400 hover:bg-gray-900 hover:text-white" href="/tickets/createticket">Create Ticket</a>
-=======
         <div class="bg-gray-900 px-4 py-2 text-white">
             <i class="bi bi-ticket-perforated-fill"></i> &nbsp; <strong>Tickets</strong>
->>>>>>> 3564ca178edfb21bdc9b2eac41d76e388ab63922
         </div>
         <div class="p-2">
             <form action="/tickets/search" method="post" class="mb-4">
