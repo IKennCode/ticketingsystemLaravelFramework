@@ -1,5 +1,5 @@
 <aside class="flex flex-col w-54 h-screen px-4 py-8 overflow-y-auto bg-gray-900 border-black drop-shadow-20xl">
-  
+
    <div class="flex flex-col items-center mt-6 -mx-2">
       <img class="object-cover w-24 h-24 mx-2 rounded-full" src="../image/myprofile.jpg" alt="avatar">
       <h4 class="mx-2 mt-2 font-medium text-gray-800  dark:text-gray-200">
@@ -45,7 +45,32 @@
                   <span class="mx-4 font-medium">Tickets</span>
                </a>
             </li>
-           
+            <li class="relative group">
+               <a id="settingsToggle" class="flex items-center px-4 py-2 mt-5 text-gray-800 transition-colors duration-300 transform rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700 cursor-pointer" href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
+                     <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z" />
+                     <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z" />
+                  </svg>
+                  <span class="mx-4 font-medium">Settings</span>
+                  <!-- Dropdown Indicator Icon -->
+                  <svg class="w-4 h-4 ml-auto" viewBox="0 0 20 20" fill="currentColor">
+                     <path fill-rule="evenodd" d="M10 3.5a.5.5 0 0 1 .5.5v11a.5.5 0 1 1-1 0v-11a.5.5 0 0 1 .5-.5z" />
+                  </svg>
+               </a>
+
+               <!-- Dropdown Menu -->
+               <ul id="settingsDropdownMenu" class="absolute left-0 mt-2 bg-white dark:bg-gray-800 rounded-lg shadow-lg hidden opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-opacity duration-300 transition-transform">
+                  <li>
+                     <a class="block px-4 py-2 text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200" href="/settings/profile">Profile</a>
+                  </li>
+                  <li>
+                     <a class="block px-4 py-2 text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200" href="/settings/security">Security</a>
+                  </li>
+                  <!-- Add more dropdown links as needed -->
+               </ul>
+            </li>
+         </ul>
+
       </nav>
       <form action="/logout" class="d-flex" method="post">
          @csrf
