@@ -1,5 +1,5 @@
 <table class="min-w-full table-auto mb-4 border-1 shadow-lg">
-    <thead class="bg-gray-600 text-white">
+    <thead class="bg-gray-700 text-white">
         <tr>
             <th class="px-2 py-2 whitespace-nowrap">#</th>
             <th class="px-2 py-2 whitespace-nowrap">Status</th>
@@ -24,8 +24,7 @@
                 @else
                     bg-red-300
                 @endif
-            "
-            @php if($ticket->status == 1){
+            " @php if($ticket->status == 1){
             echo " table-warning"; }elseif($ticket->status == 2){
             echo "table-info";
             }elseif($ticket->status == 3){
@@ -40,27 +39,27 @@
             <td class="px-2 py-1 whitespace-nowrap">{{ $ticket->id }}</td>
             <td class="px-2 py-1 whitespace-nowrap text-center">
                 @if($ticket->status == 1)
-                    New
+                New
                 @elseif($ticket->status == 2)
-                    Acknowledged
+                Acknowledged
                 @elseif($ticket->status == 3)
-                    Resolved
+                Resolved
                 @elseif($ticket->status == 4)
-                    Closed
+                Closed
                 @else
-                    Cancelled
+                Cancelled
                 @endif
             </td>
             <td class="px-2 py-1 whitespace-nowrap">{{ $ticket->title }}</td>
-            <td class="px-2 py-1 whitespace-nowrap text-center">{{ $ticket->category }}</td>
-            <td class="px-2 py-1 whitespace-nowrap text-center">{{ $ticket->first_name }} {{ $ticket->last_name }}</td>
+            <td class="px-2 py-1 whitespace-nowrap">{{ $ticket->category }}</td>
+            <td class="px-2 py-1 whitespace-nowrap">{{ $ticket->first_name }} {{ $ticket->last_name }}</td>
             <td class="px-2 py-1 whitespace-nowrap">{{ $ticket->created_at }}</td>
             <td class="px-2 py-1 whitespace-nowrap">
                 <form action="/tickets/viewticket/{{$ticket->id}}/{{auth()->user()->id}}" method="POST">
                     @csrf
                     <input type="hidden" name="opened_by" value="{{auth()->user()->id}}">
                     <input type="hidden" name="id" value="{{ $ticket->id }}">
-                    <button type="submit" class="px-2 py-1 border rounded bg-gray-400 hover:bg-gray-900 hover:text-white">
+                    <button type="submit" class="px-2 py-1 border rounded bg-gray-400 hover:bg-gray-700 hover:text-white">
                         <i class="bi bi-three-dots-vertical"></i>
                     </button>
                 </form>
