@@ -1,4 +1,4 @@
-<div class="w-54 h-screen px-4 py-8 overflow-y-auto bg-gray-900 border-black text-xs">
+<div class="w-50 h-screen px-4 py-8 overflow-y-auto bg-gray-900 border-black text-xs">
     <div class="flex flex-col space-y-4">
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
         <a class="flex-1 items-center w-40 px-4 py-2 mt-5 text-gray-100 transition-colors duration-300 transform rounded-lg

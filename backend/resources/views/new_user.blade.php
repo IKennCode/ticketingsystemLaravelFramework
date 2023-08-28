@@ -123,7 +123,7 @@
 
                         <div>
                             <div >
-                                <button type="submit" class=" font-semibold mt-10 bg-blue w-full h-10 cursor-pointer text-white rounded-md hover:bg-blue-600 hover:outline outline-2 outline-blue-600 outline-offset-2 text-sm">
+                                <button type="submit" class=" font-semibold mt-10 bg-blue first-letter= w-full h-10 cursor-pointer text-white rounded-md hover:bg-blue-600 hover:outline outline-2 outline-blue-600 outline-offset-2 text-sm">
                                     Register
                                 </button>
                             </div>
