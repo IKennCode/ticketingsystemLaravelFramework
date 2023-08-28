@@ -16,7 +16,7 @@
                 </div>
             </form>
             @include('parts._ticketstable')
-            {{$tickets->onEachSide(0)->links('pagination::tailwind')}}
+            {{$tickets->onEachSide(0)->links('pagination::tailwind', ['class' => 'text-white'])}}
         </div>
 
     </div>
