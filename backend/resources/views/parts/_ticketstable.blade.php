@@ -12,7 +12,7 @@
     </thead>
     <tbody>
         @foreach ($tickets as $ticket)
-        <tr class="hover:bg-gray-100" @php if($ticket->status == 1){
+        <tr class="hover:bg-gray-100 text-xs" @php if($ticket->status == 1){
             echo " table-warning"; }elseif($ticket->status == 2){
             echo "table-info";
             }elseif($ticket->status == 3){

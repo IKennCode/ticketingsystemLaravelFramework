@@ -11,7 +11,7 @@
     </thead>
     <tbody>
         @foreach ($users as $user)
-        <tr class="hover:bg-gray-100">
+        <tr class="hover:bg-gray-100 text-xs">
             <td class="px-2 py-2 whitespace-nowrap">{{ $user->id }}</td>
             <td class="px-2 py-2 whitespace-nowrap">{{ $user->last_name }}, {{ $user->first_name }} {{ $user->middle_name }}</td>
             <td class="px-2 py-2 whitespace-nowrap">{{ $user->username }}</td>
