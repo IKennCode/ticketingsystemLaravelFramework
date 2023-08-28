@@ -1,11 +1,11 @@
 @include('parts._head')
-<div class="flex justify-center items-center h-screen">
+<div class="flex justify-center h-screen">
     <div class="w-64">
         @include('parts._navbar')
     </div>
-    <div class="w-full h-screen">
-        <div class="bg-gray-200 px-4 py-2">
-            <strong>Job Titles</strong>
+    <div class="w-full h-screen bg-gray-600">
+        <div class="bg-gray-700 px-4 py-2 text-white">
+            <i class="bi bi-person-hearts"></i> &nbsp; <strong>Job Titles</strong>
         </div>
         <div class="p-2">
             <form action="/jobtitles/save" method="post" class="mb-4">
@@ -18,7 +18,7 @@
                         <option value="{{$department->id}}">{{$department->description}}</option>
                         @endforeach
                     </select>
-                    <button class="border rounded px-6 py-2 border rounded bg-gray-400 hover:bg-gray-900 hover:text-white" type="submit" Value="save">Save</button>
+                    <button class="border rounded px-6 py-2 border rounded bg-gray-400 hover:bg-gray-700 hover:text-white" type="submit" Value="save">Save</button>
                 </div>
             </form>
             @include('parts._jobtitlestable')
