@@ -1,4 +1,4 @@
-<aside class="flex flex-col w-64 h-screen px-4 py-8 overflow-y-auto bg-gray-900 border-black drop-shadow-20xl">
+<aside class="flex flex-col w-54 h-screen px-4 py-8 overflow-y-auto bg-gray-900 border-black drop-shadow-20xl">
   
    <div class="flex flex-col items-center mt-6 -mx-2">
       <img class="object-cover w-24 h-24 mx-2 rounded-full" src="../image/myprofile.jpg" alt="avatar">
@@ -11,7 +11,7 @@
    </div>
 
    <div class="flex flex-col justify-between flex-1 mt-6 ">
-      <nav>
+      <nav class="text-xs">
          <ul>
             <li>
                <a class="flex items-center px-4 py-2 text-gray-700 rounded-lg dark:bg-gray-800 dark:text-gray-200 {{ request()->is('dashboard') ? 'bg-gray-100' : 'hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700' }}" href="/dashboard">
@@ -51,8 +51,8 @@
          @csrf
          <a class="flex justify-center items-center px-4 py-2 mt-5 text-red-100 transition-colors transform rounded-lg bg-red-700 hover:bg-gray-100 dark:hover:bg-red-600 dark:hover:text-gray-200 hover:text-gray-700 font-bold  hover:scale-110 duration-100">
 
-            <span class="text-center">
-               <button class="flex justify-center items-center whitespace-nowrap">Logout</button>
+            <span class="text-center text-xs">
+               <button class="flex justify-center items-center whitespace-nowrap"><i class="bi bi-box-arrow-right"></i> &nbsp; Logout</button>
             </span>
 
          </a>
