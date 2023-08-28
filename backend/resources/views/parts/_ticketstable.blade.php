@@ -1,6 +1,6 @@
-<table class="min-w-full table-auto mb-4 border-2">
-    <thead>
-        <tr class="bg-gray-300">
+<table class="min-w-full table-auto mb-4 border-1 shadow-lg">
+    <thead class="bg-gray-600 text-white">
+        <tr>
             <th class="px-2 py-2 whitespace-nowrap">#</th>
             <th class="px-2 py-2 whitespace-nowrap">Status</th>
             <th class="px-2 py-2 whitespace-nowrap">Title</th>
@@ -10,7 +10,7 @@
             <th class="px-2 py-2 whitespace-nowrap"></th>
         </tr>
     </thead>
-    <tbody>
+    <tbody class="bg-gray-300">
         @foreach ($tickets as $ticket)
         <tr class="hover:bg-gray-100 text-xs" @php if($ticket->status == 1){
             echo " table-warning"; }elseif($ticket->status == 2){
@@ -24,13 +24,13 @@
             }
             @endphp
             ">
-            <td class="px-2 py-2 whitespace-nowrap">{{ $ticket->id }}</td>
-            <td class="px-2 py-2 whitespace-nowrap text-center">{{ $ticket->status }}</td>
-            <td class="px-2 py-2 whitespace-nowrap">{{ $ticket->title }}</td>
-            <td class="px-2 py-2 whitespace-nowrap text-center">{{ $ticket->category }}</td>
-            <td class="px-2 py-2 whitespace-nowrap text-center">{{ $ticket->first_name }} {{ $ticket->last_name }}</td>
-            <td class="px-2 py-2 whitespace-nowrap">{{ $ticket->created_at }}</td>
-            <td class="px-2 py-2 whitespace-nowrap">
+            <td class="px-2 py-1 whitespace-nowrap">{{ $ticket->id }}</td>
+            <td class="px-2 py-1 whitespace-nowrap text-center">{{ $ticket->status }}</td>
+            <td class="px-2 py-1 whitespace-nowrap">{{ $ticket->title }}</td>
+            <td class="px-2 py-1 whitespace-nowrap text-center">{{ $ticket->category }}</td>
+            <td class="px-2 py-1 whitespace-nowrap text-center">{{ $ticket->first_name }} {{ $ticket->last_name }}</td>
+            <td class="px-2 py-1 whitespace-nowrap">{{ $ticket->created_at }}</td>
+            <td class="px-2 py-1 whitespace-nowrap">
                 <form action="/tickets/viewticket/{{$ticket->id}}/{{auth()->user()->id}}" method="POST">
                     @csrf
                     <input type="hidden" name="opened_by" value="{{auth()->user()->id}}">

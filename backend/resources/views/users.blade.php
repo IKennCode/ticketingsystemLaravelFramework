@@ -5,7 +5,7 @@
     </div>
 
     <div class="w-full h-screen">
-        <div class="bg-gray-200 px-4 py-2">
+        <div class="bg-gray-900 px-4 py-2 text-white">
             <strong>Users</strong>
         </div>
         <div class="p-2">
@@ -17,12 +17,12 @@
                 </div>
             </form>
             @include('parts._userstable')
-            {{ $users->links('pagination::tailwind') }}
+            <div>{{ $users->links('pagination::tailwind') }}</div>
         </div>
 
     </div>
 
-    <div class="w-64">
+    <div class="w-54">
         @include('parts._usersnav')
     </div>
 

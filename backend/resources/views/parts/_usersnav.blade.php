@@ -1,4 +1,4 @@
-<div class="flex flex-col w-full h-screen px-4 py-8 overflow-y-auto bg-gray-900 border-black drop-shadow-20xl">
+<div class="flex flex-col w-54 h-screen px-4 py-8 overflow-y-auto bg-gray-900 border-black drop-shadow-20xl text-xs">
     <div class="flex flex-col space-y-4">
 
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
