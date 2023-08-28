@@ -27,7 +27,7 @@
                                 <form action="/tickets/cancel" method="post" class="d-flex">
                                     @csrf
                                     <input type="hidden" name="ticket_id" value="{{$data->id}}">
-                                    <button type="submit" class="btn btn-sm btn-danger">Cancel</button>
+                                    <button type="submit" class="btn btn-sm btn-danger">Cancel Ticket</button>
                                 </form>
                             </li>
                         </ul>

@@ -4,8 +4,8 @@
         @include('parts._navbar')
     </div>
     <div class="w-full h-screen">
-        <div class="bg-gray-200 px-4 py-2">
-            <strong>Tickets</strong>
+        <div class="bg-gray-900 px-4 py-2 text-white">
+            <i class="bi bi-ticket-perforated-fill"></i> &nbsp; <strong>Tickets</strong>
         </div>
         <div class="p-2">
             <form action="/tickets/search" method="post" class="mb-4">
