@@ -12,17 +12,17 @@
     </thead>
     <tbody class="bg-gray-300">
         @foreach ($tickets as $ticket)
-        <tr class="hover:bg-neutral-600 text-xs hover:text-white
+        <tr class="hover:bg-gray-500 text-xs hover:text-white
                 @if($ticket->status == 1)
-                    bg-yellow-300
+                    bg-yellow-100
                 @elseif($ticket->status == 2)
-                    bg-cyan-300
+                    bg-cyan-100
                 @elseif($ticket->status == 3)
-                    bg-green-300
+                    bg-green-100
                 @elseif($ticket->status == 4)
-                    bg-gray-300
+                    bg-gray-100
                 @else
-                    bg-red-300
+                    bg-red-100
                 @endif
             " @php if($ticket->status == 1){
             echo " table-warning"; }elseif($ticket->status == 2){
