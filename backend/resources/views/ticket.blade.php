@@ -1,13 +1,12 @@
 @include('parts._head')
-@include('parts._navbar')
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-12 col-md-2 col-lg-2 px-0 py-3 bg-dark">
-                @include('parts._ticketsnav')
-            </div>
-            <div class="col-sm-12 col-md-10 col-lg-10 pt-5">
+<div class="flex justify-center items-center h-screen bg-gray-100">
+        <div class="w-64">
+            @include('parts._navbar')
+        </div>
+        <div class="w-full h-screen">
+            <div class="flex">
                 @foreach($ticket as $data)
-                <div class="card mt-3">
+                <div class="flex">
                     <div class="card-header">
                         <ul class="nav">
                             <li class="nav-item px-1">
@@ -140,5 +139,8 @@
                 </div>
             </div>
         </div>
-    </div>  
+        <div class="w-64">
+        @include('parts._ticketsnav')
+        </div>
+</div>  
 @include('parts._foot')
