@@ -22,7 +22,7 @@
 
     </div>
 
-    <div class="w-54">
+    <div class="">
         @include('parts._usersnav')
     </div>
 
