@@ -72,7 +72,6 @@
           type: 'pie',
           data: {
             labels: ['New Tickets', 'Open Tickets', 'Resolved Tickets', 'Cancelled Tickets'],
-            backgroundColor: ['orange', 'aqua', 'green', 'red'],
             datasets: [{
               label: '# of Tickets',
               data: [{{$newTicketCount}}, {{$openTicketCount}}, {{$resolvedTicketCount}}, {{$cancelledTicketCount}}],
