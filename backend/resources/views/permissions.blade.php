@@ -3,7 +3,7 @@
     <div class="w-64">
         @include('parts._navbar')
     </div>
-    <div class="w-full h-screen bg-gray-600">
+    <div class="w-full h-screen bg-gray-400">
         <div class="bg-gray-700 px-4 py-2 text-white">
             <i class="bi bi-key-fill"></i> &nbsp; <strong>Permissions</strong>
         </div>

@@ -18,4 +18,4 @@
 
 </head>
 
-<body class="bg-gray-800">
+<body>
