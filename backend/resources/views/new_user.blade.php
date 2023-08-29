@@ -91,7 +91,7 @@
                         <div class="w-1/3 mx-5">
                             <label for="username" class="block text-gray-100 font-semibold py-2">Username</label>
 
-                            <input id="username" type="text" name="username" class="block w-full px-4 py-2 rounded" value="{{ old('username') }}" required>
+                            <input id="username" type="text" name="username" class="block w-full px-4 py-2 rounded bg-gray-300" value="{{ old('username') }}" required>
                         </div>
                         <!-- <input id="password" type="hidden" name="password" class="" value="password">
                         <input id="status" type="hidden" name="status" class="" value="1">
