@@ -22,7 +22,7 @@
     </div>
 
     <div class="w-64">
-        @include('parts._usersnav')
+        @include('parts._ticketsnav')
     </div>
 </div>
 @include('parts._foot')

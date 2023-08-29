@@ -22,8 +22,8 @@
 
     </div>
 
-    <div class="">
-        @include('parts._usersnav')
+    <div class="w-54">
+        @include('parts._ticketsnav')
     </div>
 
 
