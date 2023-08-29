@@ -1,18 +1,18 @@
 @include('parts._head')
-<div class="flex justify-center items-center h-screen bg-gray-100">
+<div class="flex justify-center items-center h-screen bg-gray-500">
         <div class="w-64">
             @include('parts._navbar')
         </div>
-        <div class="w-full h-screen">
-            <div class="flex">
+        <div class="w-full h-screen bg-gray-600">
+            <div class="flex bg-gray-700 px-4 py-2 text-white">
                 @foreach($ticket as $data)
-                <div class="flex">
-                    <div class="card-header">
-                        <ul class="nav">
-                            <li class="nav-item px-1">
+                <div class=" flex w-full columns-4 p-1">
+                    <div class="flex">
+                        <ul class="flex">
+                            <li class="font-bold">
                                 <strong>Ticket</strong>
                             </li>
-                            <li class="nav-item px-1">
+                            <li class="font-bold">
                                 #{{$data->id}} 
                             </li>
                             <li class="nav-item px-1" style="display:{{$data->acknowledged_by||$data->status==3||$data->status==4||$data->status==5 ? 'none' : 'block' }};">
@@ -31,7 +31,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="card-body pb-0">
+                    <div class="flex">
                         <div class="row">
                             <div class="col-12">
                                 <div class="input-group mb-3 input-group-sm">
@@ -101,7 +101,7 @@
                 </div>
                 @endforeach
 
-                <div class="card mt-3">
+                <div class="flex">
                     <div class="card-header"><strong>Message</strong></div>
                     <div class="card-body">
                         <div class="row">
