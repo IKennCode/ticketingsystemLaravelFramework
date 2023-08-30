@@ -2512,6 +2512,12 @@ video {
 .right-12 {
   right: 3rem;
 }
+.bottom-0 {
+  bottom: 0px;
+}
+.left-0 {
+  left: 0px;
+}
 .z-0 {
   z-index: 0;
 }
@@ -2605,6 +2611,9 @@ video {
 }
 .mt-6 {
   margin-top: 1.5rem;
+}
+.mb-5 {
+  margin-bottom: 1.25rem;
 }
 .block {
   display: block;
@@ -2882,6 +2891,10 @@ video {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 .pt-5 {
   padding-top: 1.25rem;

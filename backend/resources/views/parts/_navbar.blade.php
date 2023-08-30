@@ -1,4 +1,4 @@
-<aside class="flex flex-col w-54 h-screen px-4 py-8 overflow-y-auto bg-gray-800 border-black drop-shadow-20xl">
+<aside class="flex flex-col w-54 h-screen px-4 py-6 overflow-y-auto bg-gray-800 border-black drop-shadow-20xl">
 
    <div class="flex flex-col items-center mt-6 -mx-2">
       <img class="object-cover w-24 h-24 mx-2 rounded-full" src="../image/myprofile.jpg" alt="avatar">
@@ -123,7 +123,7 @@
       </nav>
       <form action="/logout" class="d-flex" method="post">
          @csrf
-         <a class="flex justify-center items-center px-4 py-2 mt-5 text-gray-100 transition-colors transform rounded-lg bg-red-600 hover:bg-red-800 dark:hover:bg-red-600 dark:hover:text-gray-200 hover:text-gray-300 font-bold  hover:scale-110 duration-100">
+         <a class="flex justify-center items-center px-4 py-2 mt-2 text-gray-100 transition-colors transform rounded-lg bg-red-600 hover:bg-red-800 dark:hover:bg-red-600 dark:hover:text-gray-200 hover:text-gray-300 font-bold  hover:scale-110 duration-100">
 
             <span class="text-center text-xs">
                <button class="flex justify-center items-center whitespace-nowrap"><i class="bi bi-box-arrow-right"></i> &nbsp; Sign Out</button>
