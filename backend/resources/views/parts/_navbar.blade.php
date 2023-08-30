@@ -105,15 +105,15 @@
                <ul id="settingsDropdownMenu" class="absolute right-12 hidden opacity-0 scale-95">
                   <li>
                      <a class="block px-4 py-1 ml-5 mt-1 text-xs text-gray-400 transition-colors duration-300 transform rounded-lg
-                {{ request()->is('#') ? 'bg-gray-100' : 'hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-100 hover:text-gray-700' }}" href="#"><i class="bi bi-gear"></i> &nbsp; Setting 1</a>
+                {{ request()->is('permissions') ? 'bg-gray-100' : 'hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700' }}" href="/permissions"><i class="bi bi-key-fill"></i> &nbsp; Permissions</a>
                   </li>
                   <li>
                      <a class="block px-4 py-1 ml-5 mt-1 text-xs text-gray-400 transition-colors duration-300 transform rounded-lg
-                {{ request()->is('#') ? 'bg-gray-100' : 'hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700' }}" href="#"><i class="bi bi-gear"></i> &nbsp; Setting 2</a>
+                {{ request()->is('departments') ? 'bg-gray-100' : 'hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700' }}" href="/departments"><i class="bi bi-buildings"></i> &nbsp; Departments</a>
                   </li>
                   <li>
-                     <a class="block px-4 py-1 ml-5 mt-1 mb-6 text-xs text-gray-400 transition-colors duration-300 transform rounded-lg
-                {{ request()->is('#') ? 'bg-gray-100' : 'hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700' }}" href="#"><i class="bi bi-gear"></i> &nbsp; Setting 3</a>
+                     <a class="block px-4 py-1 ml-5 mt-1 text-xs text-gray-400 transition-colors duration-300 transform rounded-lg
+                {{ request()->is('jobtitles') ? 'bg-gray-100' : 'hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700' }}" href="/jobtitles"><i class="bi bi-person-fill-add"></i> &nbsp; Job Titles</a>
                   </li>
                   <!-- Add more dropdown links as needed -->
                </ul>
