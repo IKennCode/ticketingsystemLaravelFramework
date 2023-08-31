@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Logs;
+use App\Models\Departments;
+use App\Models\JobTitles;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 
@@ -32,7 +34,9 @@ class UserController extends Controller
     }
 
     public function newuser(){
-        return view('new_user');
+        $departments = Departments::orderBy('description', 'asc')->get();
+        $jobtitles = JobTitles::orderBy('description', 'asc')->get();
+        return view('new_user', ['departments' => $departments, 'jobtitles' => $jobtitles]);
     }
 
     public function add(Request $request){

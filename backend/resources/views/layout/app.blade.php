@@ -20,7 +20,7 @@
     {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
 </head>
 <body>
-    <div class="container-fluid p-0">
+    <div class="container-fluid">
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/dashboard') }}">
@@ -91,7 +91,7 @@
                 </ul>
             </div>
             <div class="col-sm-12 col-md-8 col-lg-8">
-                <main>
+                <main style="height: 100vh;">
                     @yield('content')
                 </main>
             </div>

@@ -75,11 +75,9 @@
                             <label for="department" class="input-group-text">Department</label>
                             <select id="department" class="form-select form-select-sm" name="department" required>
                                 <option value="">--</option>
-                                <option value="1">IT</option>
-                                <option value="2">Finance</option>
-                                <option value="3">Purchasing</option>
-                                <option value="4">Support Service</option>
-                                <option value="5">Customer Relations</option>
+                                @foreach($departments as $department)
+                                    <option value="{{$department->id}}">{{$department->description}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -89,11 +87,9 @@
                             <label for="job_title" class="input-group-text">Job Title</label>
                             <select id="job_title" class="form-select form-select-sm" name="job_title" required>
                                 <option value="">--</option>
-                                <option value="1">IT</option>
-                                <option value="2">Finance</option>
-                                <option value="3">Purchasing</option>
-                                <option value="4">Support Service</option>
-                                <option value="5">Customer Relations</option>
+                                @foreach($jobtitles as $jobtitle)
+                                    <option value="{{$jobtitle->id}}">{{$jobtitle->description}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -110,8 +106,8 @@
                     </div>
                 </div>
 
-                <button type="submit" class=" px-6 py-2 ml-5 mt-3 border rounded bg-gray-400 text-gray-700 hover:bg-gray-700 hover:text-white shadow-2xl font-semibold">
-                    Register
+                <button type="submit" class="btn btn-sm btn-primary mt-3">
+                    Register User
                 </button>
 
             </form>
