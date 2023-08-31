@@ -1,24 +1,122 @@
-@include('parts._head')
-<h1>this is the individual users page</h1>
-@foreach($users as $user)
-<p>{{$user->id}}</p>
-<p>{{$user->first_name}}</p>
-<p>{{$user->middle_name}}</p>
-<p>{{$user->last_name}}</p>
-<p>{{$user->birthdate}}</p>
-<p>{{$user->gender}}</p>
-<p>{{$user->marital_status}}</p>
-<p>{{$user->department}}</p>
-<p>{{$user->job_title}}</p>
-<p>{{$user->permission}}</p>
-<p>{{$user->username}}</p>
-<p>{{$user->status}}</p>
-<p>
-    <input type="text" placeholder="change_password">
-    <input type="submit" value="Update Password">
-</p>
-<p>
-    <button>Reset Password</button>
-</p>
-@endforeach
-@include('parts._foot')
+@extends('layout.app')
+
+@section('content')
+    <div class="container-fluid pt-5">
+        <div class="card mt-5">
+            <div class="card-header">
+                User Profile
+            </div>
+            <div class="card-body">
+                @foreach($users as $user)
+                    <div class="row mb-3">
+                        <div class="col-sm-12 col-md-4 col-lg-4">
+                            <div class="input-group">
+                                <label class="input-group-text">User ID</label>
+                                <input type="text" class="form-control form-control-sm" value="{{$user->id}}" disabled>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-sm-12 col-md-4 col-lg-4">
+                            <div class="input-group">
+                                <label class="input-group-text">First Name</label>
+                                <input type="text" class="form-control form-control-sm" value="{{$user->first_name}}" disabled>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-4">
+                            <div class="input-group">
+                                <label class="input-group-text">Middle Name</label>
+                                <input type="text" class="form-control form-control-sm" value="{{$user->middle_name}}" disabled>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-4">
+                            <div class="input-group">
+                                <label class="input-group-text">Last Name</label>
+                                <input type="text" class="form-control form-control-sm" value="{{$user->last_name}}" disabled>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-sm-12 col-md-4 col-lg-4">
+                            <div class="input-group">
+                                <label class="input-group-text">Birth Date</label>
+                                <input type="text" class="form-control form-control-sm" value="{{$user->birthdate}}" disabled>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-4">
+                            <div class="input-group">
+                                <label class="input-group-text">Gender</label>
+                                <input type="text" class="form-control form-control-sm" value="{{$user->gender}}" disabled>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-4">
+                            <div class="input-group">
+                                <label class="input-group-text">Marital Status</label>
+                                <input type="text" class="form-control form-control-sm" value="{{$user->marital_status}}" disabled>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="row mb-3">
+                        <div class="col-sm-12 col-md-4 col-lg-4">
+                            <div class="input-group">
+                                <label class="input-group-text">Department</label>
+                                <input type="text" class="form-control form-control-sm" value="{{$user->department}}" disabled>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-4">
+                            <div class="input-group">
+                                <label class="input-group-text">Job Title</label>
+                                <input type="text" class="form-control form-control-sm" value="{{$user->job_title}}" disabled>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-4">
+                            <div class="input-group">
+                                <label class="input-group-text">Permission</label>
+                                <input type="text" class="form-control form-control-sm" value="{{$user->permission}}" disabled>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="row mb-3">
+                        <div class="col-sm-12 col-md-4 col-lg-4">
+                            <div class="input-group">
+                                <label class="input-group-text">Username</label>
+                                <input type="text" class="form-control form-control-sm" value="{{$user->username}}" disabled>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-4">
+                            <div class="input-group">
+                                <label class="input-group-text">Status</label>
+                                <input type="text" class="form-control form-control-sm" value="{{$user->status}}" disabled>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <div class="input-group">
+                            <input type="text" name="" id="" class="form-control form-control-sm" placeholder="change_password">
+                            <button class="btn btn-sm btn-primary">Change Password</button>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-1 col-lg-1">
+                        |
+                    </div>
+                    <div class="col-sm-12 col-md-5 col-lg-5">
+                        <button>Reset Password</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+@endsection

@@ -1,28 +1,29 @@
-<table class="min-w-full table-auto mb-4 border-1 shadow-lg">
-    <thead class="bg-gray-700 text-white">
+<table class="table table-sm table-hover table-stripped table-responsive">
+    <thead class="table-dark text-center">
         <tr>
-            <th class="px-2 py-2 whitespace-nowrap">#</th>
-            <th class="px-2 py-2 whitespace-nowrap">Name</th>
-            <th class="px-2 py-2 whitespace-nowrap">Username</th>
-            <th class="px-2 py-2 whitespace-nowrap">Department</th>
-            <th class="px-2 py-2 whitespace-nowrap">Job Title</th>
-            <th class="px-2 py-2 whitespace-nowrap"></th>
+            <th>#</th>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Department</th>
+            <th>Job Title</th>
+            <th></th>
         </tr>
     </thead>
-    <tbody class="bg-gray-300">
+    <tbody class="text-center">
         @foreach ($users as $user)
-        <tr class="hover:bg-gray-100 text-xs">
-            <td class="px-2 py-1 text-center whitespace-nowrap">{{ $user->id }}</td>
-            <td class="px-2 py-1 whitespace-nowrap">{{ $user->last_name }}, {{ $user->first_name }} {{ $user->middle_name }}</td>
-            <td class="px-2 py-1 whitespace-nowrap">{{ $user->username }}</td>
-            <td class="px-2 py-1 whitespace-nowrap">{{ $user->department }}</td>
-            <td class="px-2 py-1 whitespace-nowrap">{{ $user->job_title }}</td>
-            <td class="px-2 py-1 whitespace-nowrap">
+        <tr>
+            <td>{{ $user->id }}</td>
+            <td>{{ $user->last_name }}, {{ $user->first_name }} {{ $user->middle_name }}</td>
+            <td>{{ $user->username }}</td>
+            <td>{{ $user->department }}</td>
+            <td>{{ $user->job_title }}</td>
+            <td>
                 <form action="/users/user" method="post">
                     @csrf
                     <input type="hidden" name="user_id" value="{{$user->id}}">
-                    <button class="px-2 py-1 border rounded bg-gray-400 hover:bg-gray-700 hover:text-white">
+                    <button class="btn btn-sm btn-info">
                         <i class="bi bi-three-dots-vertical"></i>
+                        view
                     </button>
                 </form>
             </td>

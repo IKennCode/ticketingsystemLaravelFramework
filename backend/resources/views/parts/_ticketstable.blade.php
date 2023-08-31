@@ -1,4 +1,4 @@
-<table class="table table-sm table-hover table-stripped table-responsive">
+<table class="table table-sm table-hover table-stripped">
     <thead class="bg-gray-700 text-white">
         <tr>
             <th class="px-2 py-2 whitespace-nowrap">#</th>
@@ -59,7 +59,7 @@
                     @csrf
                     <input type="hidden" name="opened_by" value="{{auth()->user()->id}}">
                     <input type="hidden" name="id" value="{{ $ticket->id }}">
-                    <button type="submit" class="px-2 py-1 border rounded bg-gray-400 hover:bg-gray-700 hover:text-white">
+                    <button type="submit" class="btn btn-sm btn-info">
                         <i class="bi bi-three-dots-vertical"></i>view
                     </button>
                 </form>

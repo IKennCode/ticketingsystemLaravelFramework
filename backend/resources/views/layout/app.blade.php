@@ -29,19 +29,34 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="/tickets">Tickets</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Users</a>
+                            <a class="nav-link" href="/users">Users</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Departments</a>
+                            <a class="nav-link" href="/departments">Departments</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Job Title</a>
+                            <a class="nav-link" href="/jobtitles">Job Title</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">{{auth()->user()->first_name}}</a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <form action="/logout" method="post">
+                                        @csrf
+                                        <a class="nav-link">
+                                           <span class="text-center text-xs">
+                                              <button class="btn btn-sm btn-danger text-light"><i class="bi bi-box-arrow-right"></i> &nbsp; Sign Out</button>
+                                           </span>
+                                        </a>
+                                     </form>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -54,6 +69,9 @@
                 <ul class="nav flex-column mt-5">
                     <li class="nav-item">
                         <a class="nav-link text-light" href="/tickets">All Tickets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/tickets/mytickets">My Tickets</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-light" href="/tickets/newtickets">New Tickets</a>
@@ -72,7 +90,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-sm-12 col-md-8 col-lg-8" style="height: 100vh;">
+            <div class="col-sm-12 col-md-8 col-lg-8">
                 <main>
                     @yield('content')
                 </main>
@@ -80,7 +98,10 @@
             <div class="col-sm-12 col-md-2 col-lg-2 bg-dark pt-5">
                 <ul class="nav flex-column mt-5">
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="#">Create Tickets</a>
+                        <a class="nav-link text-light" href="/tickets/createticket">Create Ticket</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/users/newuser">Create User</a>
                     </li>
                 </ul>
             </div>
