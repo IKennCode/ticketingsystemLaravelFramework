@@ -1,67 +1,85 @@
-@include('parts._head')
+@extends('layout.app')
 
-<div class="flex justify-center items-center h-screen bg-gray-100">
+@section('content')
 
-    <div class="w-64">
-        @include('parts._navbar')
+<div class="container-fluid pt-5">
+    <div class="container pt-5">
+        <div class="row">
+            <div class="col-sm-12 col-md-4 col-lg-4 mb-3">
+                <div class="card">
+                    <div class="card-header">
+                        All Tickets
+                    </div>
+                    <div class="card-body">
+                        {{$ticketCount}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4 col-lg-4 mb-3">
+                <div class="card">
+                    <div class="card-header">
+                        New Tickets
+                    </div>
+                    <div class="card-body">
+                        {{$newTicketCount}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4 col-lg-4 mb-3">
+                <div class="card">
+                    <div class="card-header">
+                        Open Tickets
+                    </div>
+                    <div class="card-body">
+                        {{$openTicketCount}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4 col-lg-4 mb-3">
+                <div class="card">
+                    <div class="card-header">
+                        Resolved Tickets
+                    </div>
+                    <div class="card-body">
+                        {{$resolvedTicketCount}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-4 col-lg-4 mb-3">
+                <div class="card">
+                    <div class="card-header">
+                        Cancelled Tickets
+                    </div>
+                    <div class="card-body">
+                        {{$cancelledTicketCount}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            
+
+            <div class="col-sm-12 col-md-4 col-lg-4 mb-3">
+                <div class="card">
+                    <div class="card-header">
+                        <strong>Ticket Chart</strong>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            
+        </div>
     </div>
 
-    <div class="w-full columns-4 p-4 ">
-        <div class="max-w-xs overflow-hidden bg-white rounded-lg shadow-2xl dark:bg-gray-800">
-            <div class="px-4 py-2">
-                <h1 class="text-xl font-bold text-gray-800 uppercase dark:text-white">All Ticket </h1>
-            </div>
 
-            <div class="flex items-center justify-between px-4 py-2 bg-gray-900">
-                <h1 class="text-7xl font-bold text-gray-800 uppercase dark:text-white">{{$ticketCount}}</h1>
-            </div>
-
-            <!--Div that will hold the pie chart-->
-            <div id="chart_div"></div>
-        </div>
-        <div class="max-w-xs overflow-hidden bg-white rounded-lg shadow-2xl dark:bg-gray-800">
-            <div class="px-4 py-2">
-                <h1 class="text-xl font-bold text-gray-800 uppercase dark:text-white">New Tickets</h1>
-            </div>
-
-            <div class="flex items-center justify-between px-4 py-2 bg-gray-900">
-                <h1 class="text-7xl font-bold text-gray-800 uppercase dark:text-white">{{$newTicketCount}}</h1>
-            </div>
-        </div>
-        <div class="max-w-xs overflow-hidden bg-white rounded-lg shadow-2xl dark:bg-gray-800">
-            <div class="px-4 py-2">
-                <h1 class="text-xl font-bold text-gray-800 uppercase dark:text-white">Open Tickets</h1>
-            </div>
-
-            <div class="flex items-center justify-between px-4 py-2 bg-gray-900">
-                <h1 class="text-7xl font-bold text-gray-800 uppercase dark:text-white">{{$openTicketCount}}</h1>
-            </div>
-        </div>
-        <div class="max-w-xs overflow-hidden bg-white rounded-lg shadow-2xl dark:bg-gray-800">
-            <div class="px-4 py-2">
-                <h1 class="text-xl font-bold text-gray-800 uppercase dark:text-white">Resolved Tickets</h1>
-            </div>
-
-            <div class="flex items-center justify-between px-4 py-2 bg-gray-900">
-                <h1 class="text-7xl font-bold text-gray-800 uppercase dark:text-white">{{$resolvedTicketCount}}</h1>
-            </div>
-        </div>
-        <div class="max-w-xs overflow-hidden bg-white rounded-lg shadow-2xl dark:bg-gray-800">
-            <div class="px-4 py-2">
-                <h1 class="text-xl font-bold text-gray-800 uppercase dark:text-white">Cancelled Tickets</h1>
-            </div>
-
-            <div class="flex items-center justify-between px-4 py-2 bg-gray-900">
-                <h1 class="text-7xl font-bold text-gray-800 uppercase dark:text-white">{{$cancelledTicketCount}}</h1>
-            </div>
-        </div>
-    </div>
-
-
-    <div>
-        <strong>Ticket Chart</strong>
-        <canvas id="myChart"></canvas>
-    </div>
+    
       
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
       
@@ -87,11 +105,6 @@
           }
         });
       </script>
-      
-
-    <div class="w-64">
-        @include('parts._ticketsnav')
-    </div>
 </div>
 
-@include('parts._foot')
+@endsection

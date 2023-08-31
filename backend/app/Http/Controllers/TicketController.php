@@ -16,17 +16,21 @@ class TicketController extends Controller
         $data = DB::table('tickets')
         ->join('users', 'tickets.created_by', '=', 'users.id')
         ->select('tickets.*', 'users.first_name as first_name', 'users.last_name as last_name')
-        ->orderBy('id', 'desc')->paginate(15);
-        return view('tickets', ['tickets' => $data]);
+        ->orderBy('id', 'desc')->paginate(10);
+
+        $category = "All";
+        return view('tickets', ['tickets' => $data, 'category' => $category]);
     }
     public function alltickets(){
-        $data = Tickets::orderBy('id', 'desc')->paginate(15);
-        return view('tickets', ['tickets' => $data]);
+        $data = Tickets::orderBy('id', 'desc')->paginate(10);
+        $category = "All";
+        return view('tickets', ['tickets' => $data, 'category' => $category]);
     }
 
     public function mytickets(){
-        $data = Tickets::where('acknowledged_by', '=', auth()->user()->id )->orderBy('id', 'desc')->paginate(15);
-        return view('tickets', ['tickets' => $data]);
+        $data = Tickets::where('acknowledged_by', '=', auth()->user()->id )->orderBy('id', 'desc')->paginate(10);
+        $category = "My";
+        return view('tickets', ['tickets' => $data, 'category' => $category]);
     }
 
     public function newticket(){
@@ -56,8 +60,9 @@ class TicketController extends Controller
     }
 
     public function newtickets(){
-        $data = Tickets::whereNULL('opened_by')->orderBy('id', 'desc')->paginate(15);
-        return view('tickets', ['tickets' => $data]);
+        $data = Tickets::whereNULL('opened_by')->orderBy('id', 'desc')->paginate(10);
+        $category = "New";
+        return view('tickets', ['tickets' => $data, 'category' => $category]);
     }
 
     public function opentickets(){
@@ -66,15 +71,19 @@ class TicketController extends Controller
         ->where('opened_by', '>', 0)
         ->whereNULL('acknowledged_by')
         ->orderBy('id', 'desc')
-        ->paginate(15);
-        return view('tickets', ['tickets' => $data]);
+        ->paginate(10);
+
+        $category = "Open";
+        return view('tickets', ['tickets' => $data, 'category' => $category]);
     }
 
     public function resolvedtickets(){
         $data = Tickets::where('status', '=', 3)
         ->orderBy('id', 'desc')
-        ->paginate(15);
-        return view('tickets', ['tickets' => $data]);
+        ->paginate(10);
+
+        $category = "Resolved";
+        return view('tickets', ['tickets' => $data, 'category' => $category]);
     }
 
     public function resolve(Request $request){
@@ -91,16 +100,20 @@ class TicketController extends Controller
         // ->where('closed_by', '>', 0 )
         // add closed_by column
         ->orderBy('id', 'desc')
-        ->paginate(15);
-        return view('tickets', ['tickets' => $data]);
+        ->paginate(10);
+
+        $category = "Closed";
+        return view('tickets', ['tickets' => $data, 'category' => $category]);
     }
 
     public function cancelledtickets(){
         $data = Tickets::where('cancelled_by', '>', 0 )
         ->where('status', '=', 5)
         ->orderBy('id', 'desc')
-        ->paginate(15);
-        return view('tickets', ['tickets' => $data]);
+        ->paginate(10);
+
+        $category = "Cancelled";
+        return view('tickets', ['tickets' => $data, 'category' => $category]);
     }
 
     public function viewticket($ticket_id, $viewer_id){
@@ -133,9 +146,11 @@ class TicketController extends Controller
         ->orWhere('description', 'like', '%'.$search_value.'%')
         ->orWhere('category', 'like', '%'.$search_value.'%')
         ->orWhere('created_by', 'like', '%'.$search_value.'%')
-        ->paginate(15);
+        ->paginate(10);
         // dd($data);
-        return view('tickets', ['tickets' => $data]);
+
+        $category = "Search";
+        return view('tickets', ['tickets' => $data, 'category' => $category]);
     }
 
     public function cancel(Request $request){
