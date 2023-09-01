@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Models\Logs;
 use App\Models\Departments;
 use App\Models\JobTitles;
+use App\Models\Permission;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 
@@ -36,7 +37,8 @@ class UserController extends Controller
     public function newuser(){
         $departments = Departments::orderBy('description', 'asc')->get();
         $jobtitles = JobTitles::orderBy('description', 'asc')->get();
-        return view('new_user', ['departments' => $departments, 'jobtitles' => $jobtitles]);
+        $permissions = Permission::orderBy('description', 'asc')->get();
+        return view('new_user', ['departments' => $departments, 'jobtitles' => $jobtitles, 'permissions' => $permissions]);
     }
 
     public function add(Request $request){

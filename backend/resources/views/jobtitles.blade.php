@@ -18,9 +18,9 @@
                     </div>
                     <div class="col-sm-12 col-md-5 col-lg-5">
                         <div class="input-group">
-                            <label for="jobtitle" class="input-group-text">Job Title</label>
+                            <label for="jobtitle" class="input-group-text">Department</label>
                             <select name="department" id="department" class="form-select form-select-sm" required>
-                                <option value="Department" selected disabled>Department</option>
+                                <option value="" selected disabled>--</option>
                                 @foreach($departments as $department)
                                 <option value="{{$department->id}}">{{$department->description}}</option>
                                 @endforeach

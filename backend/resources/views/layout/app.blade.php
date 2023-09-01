@@ -43,6 +43,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/jobtitles">Job Title</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/permissions">Permissions</a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">{{auth()->user()->first_name}}</a>
                             <ul class="dropdown-menu">
@@ -91,7 +94,7 @@
                 </ul>
             </div>
             <div class="col-sm-12 col-md-8 col-lg-8">
-                <main style="height: 100vh;">
+                <main style="min-height: 100vh;">
                     @yield('content')
                 </main>
             </div>

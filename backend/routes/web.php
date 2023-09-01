@@ -63,6 +63,7 @@ Route::post('/jobtitles/save', [JobTitleController::class, 'savejobtitle'])->mid
 
 // PERMISSIONS CONTROLLER
 Route::get('/permissions', [PermissionController::class, 'permissions']);
+Route::get('/permissions/new', [PermissionController::class, 'new']);
 Route::post('/permissions/save', [PermissionController::class, 'save']);
 
 

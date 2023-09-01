@@ -104,6 +104,18 @@
                             <input id="hired_at" type="date" name="hired_at" class="form-control form-control-sm" value=" {{ old('hired_at') }}" required>
                         </div>
                     </div>
+
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <div class="input-group">
+                            <label for="permission" class="input-group-text">Permission</label>
+                            <select id="permission" class="form-select form-select-sm" name="permission" required>
+                                <option value="">--</option>
+                                @foreach($permissions as $permission)
+                                    <option value="{{$permission->id}}">{{$permission->description}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
                 </div>
 
                 <button type="submit" class="btn btn-sm btn-primary mt-3">
