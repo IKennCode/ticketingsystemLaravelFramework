@@ -4,12 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Departments;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class DepartmentController extends Controller
 {
     public function departments(){
         $data = Departments::orderBy('id', 'desc')->paginate(10);
-        return view('departments', ['departments' => $data]);
+
+        $rules = DB::table('users')
+                        ->join('permissions', 'users.permission', '=', 'permissions.id')
+                        ->where('users.id', '=', auth()->user()->id)
+                        ->select('permissions.*')
+                        ->get();
+        return view('departments', ['departments' => $data, 'rules' => $rules]);
     }
 
     public function savedepartment(Request $request){

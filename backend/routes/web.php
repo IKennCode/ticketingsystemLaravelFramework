@@ -67,9 +67,4 @@ Route::get('/permissions/new', [PermissionController::class, 'new']);
 Route::post('/permissions/save', [PermissionController::class, 'save']);
 
 
-// Route::get('/test', function(){
-//     print_r($request->session()->get('key'));
-// });
-
-
 

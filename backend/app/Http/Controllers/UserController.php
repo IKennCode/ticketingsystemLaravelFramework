@@ -24,21 +24,48 @@ class UserController extends Controller
         ->join('job_titles', 'users.job_title', '=', 'job_titles.id')
         ->select('users.*', 'departments.description as department', 'job_titles.description as job_title')
         ->orderBy('id', 'desc')->paginate(10);
-        return view('users', ['users' => $data]);
+
+        $rules = DB::table('users')
+                        ->join('permissions', 'users.permission', '=', 'permissions.id')
+                        ->where('users.id', '=', auth()->user()->id)
+                        ->select('permissions.*')
+                        ->get();
+        return view('users', [
+            'users' => $data,
+            'rules' => $rules
+        ]);
     }
 
     public function user(Request $request){
         $user_id = $request->input('user_id');
         $data = DB::table('users')
         ->where('id', '=', $user_id)->get();
-        return view('user', ['users' => $data]);
+        $rules = DB::table('users')
+                        ->join('permissions', 'users.permission', '=', 'permissions.id')
+                        ->where('users.id', '=', auth()->user()->id)
+                        ->select('permissions.*')
+                        ->get();
+        return view('user', [
+            'users' => $data,
+            'rules' => $rules
+        ]);
     }
 
     public function newuser(){
         $departments = Departments::orderBy('description', 'asc')->get();
         $jobtitles = JobTitles::orderBy('description', 'asc')->get();
         $permissions = Permission::orderBy('description', 'asc')->get();
-        return view('new_user', ['departments' => $departments, 'jobtitles' => $jobtitles, 'permissions' => $permissions]);
+        $rules = DB::table('users')
+                        ->join('permissions', 'users.permission', '=', 'permissions.id')
+                        ->where('users.id', '=', auth()->user()->id)
+                        ->select('permissions.*')
+                        ->get();
+        return view('new_user', [
+            'departments' => $departments,
+            'jobtitles' => $jobtitles,
+            'permissions' => $permissions,
+            'rules' => $rules
+        ]);
     }
 
     public function add(Request $request){
@@ -48,7 +75,7 @@ class UserController extends Controller
             'last_name' => ['required', 'min:2'],
             'birthdate' => ['required'],
             'gender' => ['required'],
-            'marital_status' => ['required'],
+            'marital_status' => ['min:1'],
             'department' => ['required'],
             'job_title' => ['required'],
             'hired_at' => ['required'],
@@ -95,8 +122,15 @@ class UserController extends Controller
         ->orWhere('last_name', 'like', '%'.$search_value.'%')
         ->orWhere('username', 'like', '%'.$search_value.'%')
         ->paginate(10);
-        // dd($data);
-        return view('users', ['users' => $data]);
+        $rules = DB::table('users')
+                        ->join('permissions', 'users.permission', '=', 'permissions.id')
+                        ->where('users.id', '=', auth()->user()->id)
+                        ->select('permissions.*')
+                        ->get();
+        return view('users', [
+            'users' => $data,
+            'rules' => $rules
+        ]);
     }
 }
 

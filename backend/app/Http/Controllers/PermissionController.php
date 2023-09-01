@@ -5,16 +5,30 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Permission;
+use Illuminate\Support\Facades\DB;
 
 class PermissionController extends Controller
 {
     public function permissions(){
         $data = Permission::orderBy('id', 'desc')->get();
-        return view('permissions', ['permissions' => $data]);
+        $rules = DB::table('users')
+                        ->join('permissions', 'users.permission', '=', 'permissions.id')
+                        ->where('users.id', '=', auth()->user()->id)
+                        ->select('permissions.*')
+                        ->get();
+        return view('permissions', [
+            'permissions' => $data,
+            'rules' => $rules
+        ]);
     }
 
     public function new(){
-        return view('new_permission');
+        $rules = DB::table('users')
+                        ->join('permissions', 'users.permission', '=', 'permissions.id')
+                        ->where('users.id', '=', auth()->user()->id)
+                        ->select('permissions.*')
+                        ->get();
+        return view('new_permission', ['rules' => $rules]);
     }
 
     public function save(Request $request){

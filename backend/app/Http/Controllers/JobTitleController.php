@@ -5,13 +5,25 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\JobTitles;
 use App\Models\Departments;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class JobTitleController extends Controller
 {
     public function jobtitles(){
         $departments = Departments::orderBy('id', 'desc')->get();
         $jobtitles = JobTitles::orderBy('id', 'desc')->paginate(10);
-        return view('jobtitles', ['departments' => $departments, 'jobtitles' => $jobtitles]);
+        $rules = DB::table('users')
+                        ->join('permissions', 'users.permission', '=', 'permissions.id')
+                        ->where('users.id', '=', auth()->user()->id)
+                        ->select('permissions.*')
+                        ->get();
+        
+        return view('jobtitles', [
+            'departments' => $departments,
+            'jobtitles' => $jobtitles,
+            'rules' => $rules
+        ]);
     }
 
     public function savejobtitle(Request $request){
@@ -22,11 +34,6 @@ class JobTitleController extends Controller
             'created_at' => now(),
             'is_active' => 1
         ];
-
-        // $data['description'] = $request->input('description');
-        // $data['fk_department'] = $request->input('department');
-        // $data['created_by'] = auth()->user()->id;
-        // $data['created_at'] = now();
 
         $save = JobTitles::insert([$data]);
 

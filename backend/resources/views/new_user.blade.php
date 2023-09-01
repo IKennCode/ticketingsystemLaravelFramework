@@ -5,6 +5,7 @@
     <div class="card mt-5">
         <div class="card-header">
             <i class="bi bi-person-hearts"></i> &nbsp; <strong>Create New User</strong>
+            {{$errors}}
         </div>
         <div class="card-body">
             <form method="POST" action="/users/newuser/add">
@@ -46,22 +47,22 @@
                         <div class="input-group">
                             <label for="gender" class="input-group-text">Gender</label>
                             <select id="gender" class="form-select form-select-sm" name="gender" required>
-                                <option id="" value="">--</option>
-                                <option id="male">Male</option>
-                                <option id="female">Female</option>
+                                <option value="" value="">--</option>
+                                <option value="1">Male</option>
+                                <option value="2">Female</option>
                             </select>
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-4 col-lg-4">
                         <div class="input-group">
                             <label for="marital_status" class="input-group-text">Marital Status</label>
-                            <select id="marital_status" class="form-select form-select-sm" name="" required>
-                                <option name="single" id="marital_status" class="text-sm mx-1" value="">--</option>
-                                <option name="single" id="marital_status" class="text-sm mx-1" value="1">Single</option>
-                                <option name="married" id="marital_status" class="text-sm mx-1" value="2">Married</option>
-                                <option name="widowed" id="marital_status" class="text-sm mx-1" value="3">Widowed</option>
-                                <option name="seperated" id="marital_status" class="text-sm mx-1" value="4">Seperated</option>
-                                <option name="divorced" id="marital_status" class="text-sm mx-1" value="5">Divorced</option>
+                            <select id="marital_status" class="form-select form-select-sm" name="marital_status" required>
+                                <option value="">--</option>
+                                <option value="1">Single</option>
+                                <option value="2">Married</option>
+                                <option value="3">Widowed</option>
+                                <option value="4">Seperated</option>
+                                <option value="5">Divorced</option>
                             </select>
                         </div>
                     </div>
@@ -110,8 +111,8 @@
                             <label for="permission" class="input-group-text">Permission</label>
                             <select id="permission" class="form-select form-select-sm" name="permission" required>
                                 <option value="">--</option>
-                                @foreach($permissions as $permission)
-                                    <option value="{{$permission->id}}">{{$permission->description}}</option>
+                                @foreach($permissions as $perm)
+                                    <option value="{{$perm->id}}">{{$perm->description}}</option>
                                 @endforeach
                             </select>
                         </div>

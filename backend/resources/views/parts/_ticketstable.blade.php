@@ -1,40 +1,29 @@
 <table class="table table-sm table-hover table-stripped">
     <thead class="bg-gray-700 text-white">
         <tr>
-            <th class="px-2 py-2 whitespace-nowrap">#</th>
-            <th class="px-2 py-2 whitespace-nowrap">Status</th>
-            <th class="px-2 py-2 whitespace-nowrap">Title</th>
-            <th class="px-2 py-2 whitespace-nowrap">Category</th>
-            <th class="px-2 py-2 whitespace-nowrap">Requested By</th>
-            <th class="px-2 py-2 whitespace-nowrap">Date</th>
-            <th class="px-2 py-2 whitespace-nowrap"></th>
+            <th>#</th>
+            <th>Status</th>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Requested By</th>
+            <th>Date</th>
+            <th></th>
         </tr>
     </thead>
     <tbody class="bg-gray-300">
         @foreach ($tickets as $ticket)
-        <tr class="hover:bg-gray-500 text-xs hover:text-white
+        <tr class="
                 @if($ticket->status == 1)
-                    bg-yellow-100
+                    table-primary
                 @elseif($ticket->status == 2)
-                    bg-cyan-100
+                    table-warning
                 @elseif($ticket->status == 3)
-                    bg-green-100
+                    table-success
                 @elseif($ticket->status == 4)
-                    bg-gray-100
+                    table-secondary
                 @else
-                    bg-red-100
+                    table-danger
                 @endif
-            " @php if($ticket->status == 1){
-            echo " table-warning"; }elseif($ticket->status == 2){
-            echo "table-info";
-            }elseif($ticket->status == 3){
-            echo "table-success";
-            }elseif($ticket->status == 4){
-            echo "table-dark";
-            }else{
-            echo "table-danger";
-            }
-            @endphp
             ">
             <td class="px-2 py-1 whitespace-nowrap">{{ $ticket->id }}</td>
             <td class="px-2 py-1 whitespace-nowrap text-center">
@@ -59,8 +48,8 @@
                     @csrf
                     <input type="hidden" name="opened_by" value="{{auth()->user()->id}}">
                     <input type="hidden" name="id" value="{{ $ticket->id }}">
-                    <button type="submit" class="btn btn-sm btn-info">
-                        <i class="bi bi-three-dots-vertical"></i>view
+                    <button type="submit" class="btn btn-sm btn-info text-light">
+                        <i class="bi bi-three-dots-vertical"></i><strong>view</strong>
                     </button>
                 </form>
             </td>

@@ -31,19 +31,23 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
                     <ul class="navbar-nav">
+                        @foreach($rules as $rule)
+                        <li class="nav-item">
+                            <a class="nav-link" href="/dashboard">Dashboard</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/tickets">Tickets</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item" style="display: {{$rule->view_users == 1 ? 'block' : 'none'}}">
                             <a class="nav-link" href="/users">Users</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item" style="display: {{$rule->view_departments == 1 ? 'block' : 'none'}}">
                             <a class="nav-link" href="/departments">Departments</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item" style="display: {{$rule->view_job_titles == 1 ? 'block' : 'none'}}">
                             <a class="nav-link" href="/jobtitles">Job Title</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item" style="display: {{$rule->view_permissions == 1 ? 'block' : 'none'}}">
                             <a class="nav-link" href="/permissions">Permissions</a>
                         </li>
                         <li class="nav-item dropdown">
@@ -61,6 +65,7 @@
                                 </li>
                             </ul>
                         </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
@@ -70,25 +75,25 @@
         <div class="row">
             <div class="col-sm-12 col-md-2 col-lg-2 bg-dark pt-5">
                 <ul class="nav flex-column mt-5">
-                    <li class="nav-item">
+                    <li class="nav-item" style="display: {{$rule->view_all_tickets == 1 ? 'block' : 'none'}}">
                         <a class="nav-link text-light" href="/tickets">All Tickets</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-light" href="/tickets/mytickets">My Tickets</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" style="display: {{$rule->view_new_tickets == 1 ? 'block' : 'none'}}">
                         <a class="nav-link text-light" href="/tickets/newtickets">New Tickets</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" style="display: {{$rule->view_open_tickets == 1 ? 'block' : 'none'}}">
                         <a class="nav-link text-light" href="/tickets/opentickets">Open Tickets</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" style="display: {{$rule->view_resolved_tickets == 1 ? 'block' : 'none'}}">
                         <a class="nav-link text-light" href="/tickets/resolvedtickets">Resolved Tickets</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" style="display: {{$rule->view_closed_tickets == 1 ? 'block' : 'none'}}">
                         <a class="nav-link text-light" href="/tickets/closedtickets">Closed Tickets</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" style="display: {{$rule->view_cancelled_tickets == 1 ? 'block' : 'none'}}">
                         <a class="nav-link text-light" href="/tickets/cancelledtickets">Cancelled Tickets</a>
                     </li>
                 </ul>
@@ -103,7 +108,7 @@
                     <li class="nav-item">
                         <a class="nav-link text-light" href="/tickets/createticket">Create Ticket</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" style="display: {{$rule->create_users == 1 ? 'block' : 'none'}}">
                         <a class="nav-link text-light" href="/users/newuser">Create User</a>
                     </li>
                 </ul>

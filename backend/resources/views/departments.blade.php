@@ -11,7 +11,7 @@
                 @csrf
                 <div class="input-group">
                     <input type="text" name="department_name" class="form-control form-control-sm" id="department_name" placeholder="Department" autofocus required>
-                    <button class="btn btn-sm btn-primary" type="submit">Search</button>
+                    <button class="btn btn-sm btn-primary" type="submit">Create Department</button>
                 </div>
             </form>
             @include('parts._departmentstable')

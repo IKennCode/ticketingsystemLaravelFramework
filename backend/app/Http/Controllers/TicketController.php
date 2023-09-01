@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tickets;
+use App\Models\User;
+use App\Models\Permission;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Pagination\Paginator;
 use App\Providers\AppServiceProvider;
@@ -15,26 +17,67 @@ class TicketController extends Controller
         // $data = Tickets::orderBy('id', 'desc')->paginate(10);
         $data = DB::table('tickets')
         ->join('users', 'tickets.created_by', '=', 'users.id')
-        ->select('tickets.*', 'users.first_name as first_name', 'users.last_name as last_name')
+        ->select('tickets.*', 'users.first_name', 'users.last_name')
         ->orderBy('id', 'desc')->paginate(10);
 
         $category = "All";
-        return view('tickets', ['tickets' => $data, 'category' => $category]);
+
+        $rules = DB::table('users')
+                        ->join('permissions', 'users.permission', '=', 'permissions.id')
+                        ->where('users.id', '=', auth()->user()->id)
+                        ->select('permissions.*')
+                        ->get();
+        return view('tickets', [
+            'tickets' => $data,
+            'category' => $category,
+            'rules' => $rules
+        ]);
     }
     public function alltickets(){
-        $data = Tickets::orderBy('id', 'desc')->paginate(10);
+        $data = DB::table('tickets')
+        ->join('users', 'tickets.created_by', '=', 'users.id')
+        ->select('tickets.*', 'users.first_name', 'users.last_name')
+        ->orderBy('id', 'desc')->paginate(10);
         $category = "All";
-        return view('tickets', ['tickets' => $data, 'category' => $category]);
+        $rules = DB::table('users')
+                        ->join('permissions', 'users.permission', '=', 'permissions.id')
+                        ->where('users.id', '=', auth()->user()->id)
+                        ->select('permissions.*')
+                        ->get();
+        return view('tickets', [
+            'tickets' => $data,
+            'category' => $category,
+            'rules' => $rules
+        ]);
     }
 
     public function mytickets(){
-        $data = Tickets::where('acknowledged_by', '=', auth()->user()->id )->orderBy('id', 'desc')->paginate(10);
+        $data = DB::table('tickets')
+                ->join('users', 'tickets.created_by', 'users.id')
+                ->select('tickets.*', 'users.first_name', 'users.last_name')
+                ->where('acknowledged_by', '=', auth()->user()->id )->orWhere('created_by', '=', auth()->user()->id)->orderBy('id', 'desc')->paginate(10);
         $category = "My";
-        return view('tickets', ['tickets' => $data, 'category' => $category]);
+        $rules = DB::table('users')
+                        ->join('permissions', 'users.permission', '=', 'permissions.id')
+                        ->where('users.id', '=', auth()->user()->id)
+                        ->select('permissions.*')
+                        ->get();
+        return view('tickets', [
+            'tickets' => $data,
+            'category' => $category,
+            'rules' => $rules
+        ]);
     }
 
     public function newticket(){
-        return view('newticket');
+        $rules = DB::table('users')
+                        ->join('permissions', 'users.permission', '=', 'permissions.id')
+                        ->where('users.id', '=', auth()->user()->id)
+                        ->select('permissions.*')
+                        ->get();
+        return view('newticket', [
+            'rules' => $rules
+        ]);
     }
 
     public function addticket(Request $request){
@@ -60,30 +103,66 @@ class TicketController extends Controller
     }
 
     public function newtickets(){
-        $data = Tickets::whereNULL('opened_by')->orderBy('id', 'desc')->paginate(10);
+        $data = DB::table('tickets')
+                ->join('users', 'tickets.created_by', 'users.id')
+                ->select('tickets.*', 'users.first_name', 'users.last_name')
+                ->whereNULL('opened_by')->orderBy('id', 'desc')->paginate(10);
         $category = "New";
-        return view('tickets', ['tickets' => $data, 'category' => $category]);
+        $rules = DB::table('users')
+                        ->join('permissions', 'users.permission', '=', 'permissions.id')
+                        ->where('users.id', '=', auth()->user()->id)
+                        ->select('permissions.*')
+                        ->get();
+        return view('tickets', [
+            'tickets' => $data,
+            'category' => $category,
+            'rules' => $rules
+        ]);
     }
 
     public function opentickets(){
-        $data = Tickets::where('opened_by', '>', 0 )
-        ->where('status', '=', 1)
-        ->where('opened_by', '>', 0)
-        ->whereNULL('acknowledged_by')
-        ->orderBy('id', 'desc')
-        ->paginate(10);
+        $data = DB::table('tickets')
+                ->join('users', 'tickets.created_by', 'users.id')
+                ->select('tickets.*', 'users.first_name', 'users.last_name')
+                ->where('tickets.opened_by', '>', 0 )
+                ->where('tickets.status', '=', 1)
+                ->where('tickets.opened_by', '>', 0)
+                ->whereNULL('tickets.acknowledged_by')
+                ->orderBy('tickets.id', 'desc')
+                ->paginate(10);
 
         $category = "Open";
-        return view('tickets', ['tickets' => $data, 'category' => $category]);
+        $rules = DB::table('users')
+                        ->join('permissions', 'users.permission', '=', 'permissions.id')
+                        ->where('users.id', '=', auth()->user()->id)
+                        ->select('permissions.*')
+                        ->get();
+        return view('tickets', [
+            'tickets' => $data,
+            'category' => $category,
+            'rules' => $rules
+        ]);
     }
 
     public function resolvedtickets(){
-        $data = Tickets::where('status', '=', 3)
-        ->orderBy('id', 'desc')
-        ->paginate(10);
+        $data = DB::table('tickets')
+                ->join('users', 'tickets.created_by', 'users.id')
+                ->select('tickets.*', 'users.first_name', 'users.last_name')
+                ->where('tickets.status', '=', 3)
+                ->orderBy('tickets.id', 'desc')
+                ->paginate(10);
 
         $category = "Resolved";
-        return view('tickets', ['tickets' => $data, 'category' => $category]);
+        $rules = DB::table('users')
+                        ->join('permissions', 'users.permission', '=', 'permissions.id')
+                        ->where('users.id', '=', auth()->user()->id)
+                        ->select('permissions.*')
+                        ->get();
+        return view('tickets', [
+            'tickets' => $data,
+            'category' => $category,
+            'rules' => $rules
+        ]);
     }
 
     public function resolve(Request $request){
@@ -97,13 +176,19 @@ class TicketController extends Controller
         $data = Tickets::where('opened_by', '>', 0 )
         ->where('status', '>', 3 )
         ->where('resolved_by', '>', 0 )
-        // ->where('closed_by', '>', 0 )
-        // add closed_by column
         ->orderBy('id', 'desc')
         ->paginate(10);
-
+        $rules = DB::table('users')
+                        ->join('permissions', 'users.permission', '=', 'permissions.id')
+                        ->where('users.id', '=', auth()->user()->id)
+                        ->select('permissions.*')
+                        ->get();
         $category = "Closed";
-        return view('tickets', ['tickets' => $data, 'category' => $category]);
+        return view('tickets', [
+            'tickets' => $data,
+            'category' => $category,
+            'rules' => $rules
+        ]);
     }
 
     public function cancelledtickets(){
@@ -111,9 +196,17 @@ class TicketController extends Controller
         ->where('status', '=', 5)
         ->orderBy('id', 'desc')
         ->paginate(10);
-
+        $rules = DB::table('users')
+                        ->join('permissions', 'users.permission', '=', 'permissions.id')
+                        ->where('users.id', '=', auth()->user()->id)
+                        ->select('permissions.*')
+                        ->get();
         $category = "Cancelled";
-        return view('tickets', ['tickets' => $data, 'category' => $category]);
+        return view('tickets', [
+            'tickets' => $data,
+            'category' => $category,
+            'rules' => $rules
+        ]);
     }
 
     public function viewticket($ticket_id, $viewer_id){
@@ -121,10 +214,20 @@ class TicketController extends Controller
         if($check){
             Tickets::where('id', $ticket_id)->update(['opened_by' => $viewer_id]);
             $data = Tickets::where('id', $ticket_id)->where('opened_by', '=', $viewer_id)->get();
-            return view('ticket', ['ticket' => $data]);
+            $rules = DB::table('users')
+                        ->join('permissions', 'users.permission', '=', 'permissions.id')
+                        ->where('users.id', '=', auth()->user()->id)
+                        ->select('permissions.*')
+                        ->get();
+            return view('ticket', ['ticket' => $data, 'rules' => $rules]);
         }else{
             $data = Tickets::where('id', $ticket_id)->where('opened_by', '!=', null)->get();
-            return view('ticket', ['ticket' => $data]);
+            $rules = DB::table('users')
+                        ->join('permissions', 'users.permission', '=', 'permissions.id')
+                        ->where('users.id', '=', auth()->user()->id)
+                        ->select('permissions.*')
+                        ->get();
+            return view('ticket', ['ticket' => $data, 'rules' => $rules]);
         }
         
     }
@@ -150,7 +253,16 @@ class TicketController extends Controller
         // dd($data);
 
         $category = "Search";
-        return view('tickets', ['tickets' => $data, 'category' => $category]);
+        $rules = DB::table('users')
+                        ->join('permissions', 'users.permission', '=', 'permissions.id')
+                        ->where('users.id', '=', auth()->user()->id)
+                        ->select('permissions.*')
+                        ->get();
+        return view('tickets', [
+            'tickets' => $data,
+            'category' => $category,
+            'rules' => $rules
+        ]);
     }
 
     public function cancel(Request $request){
@@ -158,10 +270,4 @@ class TicketController extends Controller
         Tickets::where('id', '=', $ticket_id)->update(['cancelled_by' => auth()->user()->id, 'status' => 5]);
         return redirect()->intended('/tickets');
     }
-
-    // 1 = New
-    // 2 = Acknowledged
-    // 3 = Resolved
-    // 4 = Closed
-    // 5 = Cancelled
 }
