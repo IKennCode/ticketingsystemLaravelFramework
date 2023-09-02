@@ -13,12 +13,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(100)->create();
-        \App\Models\Tickets::factory(100)->create();
-        \App\Models\Departments::factory(10)->create();
-        \App\Models\JobTitles::factory(100)->create();
-        \App\Models\TicketCategory::factory(100)->create();
-        \App\Models\TicketSeverities::factory(100)->create();
-        \App\Models\TicketMessages::factory(100)->create();
+        \App\Models\User::factory(1)->create();
+        \App\Models\Permission::factory(1)->create();
+        // \App\Models\Tickets::factory(100)->create();
+        // \App\Models\Departments::factory(10)->create();
+        // \App\Models\JobTitles::factory(100)->create();
+        // \App\Models\TicketCategory::factory(100)->create();
+        // \App\Models\TicketSeverities::factory(100)->create();
+        // \App\Models\TicketMessages::factory(100)->create();
     }
 }
