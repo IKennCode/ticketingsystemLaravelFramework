@@ -108,6 +108,7 @@
                         <div class="input-group">
                             <form action="/users/changepassword" method="post">
                                 @csrf
+                                <input type="hidden" name="user_id" value="{{$user->id}}">
                                 <input type="text" name="new_password" id="new_password" class="form-control form-control-sm" placeholder="change_password">
                                 <button class="btn btn-sm btn-primary" type="submit">Change Password</button>
                             </form>

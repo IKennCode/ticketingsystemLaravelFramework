@@ -144,6 +144,18 @@ class UserController extends Controller
                 ->with('message', 'Error resetting password');
         }
     }
+
+    public function changepassword(Request $request){
+        $data = User::where('id', '=', $request->input('user_id'))
+                    ->update(['password' => Hash::make($request->input('new_password'))]);
+        if($data){
+            return redirect('/users')
+                ->with('message', 'Password changed');
+        }else{
+            return redirect('/users')
+                ->with('message', 'Error changing password');
+        }
+    }
 }
 
 ?>

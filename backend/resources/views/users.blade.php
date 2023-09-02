@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container-fluid pt-5">
+    
     <div class="card mt-5">
         <div class="card-header">
             <i class="bi bi-person-hearts"></i> &nbsp; <strong>Users</strong>
@@ -19,6 +20,16 @@
         </div>
 
     </div>
+
+    {{-- <div class="toast show mt-3">
+        <div class="toast-header">
+          Toast Header
+          <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+        </div>
+        <div class="toast-body">
+          {{$message}}
+        </div>
+    </div> --}}
 
 </div>
 @endsection
