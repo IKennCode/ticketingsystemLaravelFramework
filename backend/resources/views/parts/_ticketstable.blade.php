@@ -48,7 +48,7 @@
                     @csrf
                     <input type="hidden" name="opened_by" value="{{auth()->user()->id}}">
                     <input type="hidden" name="id" value="{{ $ticket->id }}">
-                    <button type="submit" class="btn btn-sm btn-info text-light">
+                    <button type="submit" class="btn btn-sm btn-info text-dark">
                         <i class="bi bi-three-dots-vertical"></i><strong>view</strong>
                     </button>
                 </form>

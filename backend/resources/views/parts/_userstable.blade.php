@@ -21,9 +21,9 @@
                 <form action="/users/user" method="post">
                     @csrf
                     <input type="hidden" name="user_id" value="{{$user->id}}">
-                    <button class="btn btn-sm btn-info">
+                    <button class="btn btn-sm btn-info text-dark">
                         <i class="bi bi-three-dots-vertical"></i>
-                        view
+                        <strong>view</strong>
                     </button>
                 </form>
             </td>

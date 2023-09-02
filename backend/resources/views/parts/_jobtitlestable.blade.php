@@ -15,7 +15,9 @@
             <td>{{$jobtitle->description}}</td>
             <td>{{$jobtitle->fk_department}}</td>
             <td>{{$jobtitle->is_active}}</td>
-            <td><button class="btn btn-sm btn-info"><i class="bi bi-three-dots-vertical"></i>view</button></td>
+            <td><button class="btn btn-sm btn-info"><i class="bi bi-three-dots-vertical"></i>
+                <strong>view</strong>
+            </button></td>
         </tr>
         @endforeach
     </tbody>

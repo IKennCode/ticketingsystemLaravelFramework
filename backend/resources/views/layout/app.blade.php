@@ -74,7 +74,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12 col-md-2 col-lg-2 bg-dark pt-5">
-                <ul class="nav flex-column mt-5">
+                <div class="container mt-3 p-5">
+                    <img src="{{asset('image/myprofile.jpg')}}" alt="" class="img-fluid rounded-circle img-thumbnail p-0 mt-3">
+                </div>
+                <ul class="nav flex-column">
                     <li class="nav-item" style="display: {{$rule->view_all_tickets == 1 ? 'block' : 'none'}}">
                         <a class="nav-link text-light" href="/tickets">All Tickets</a>
                     </li>

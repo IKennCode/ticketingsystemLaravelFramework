@@ -14,7 +14,9 @@
             <td>{{$department->description}}</td>
             <td>{{$department->status}}</td>
             <td>
-                <button class="btn btn-sm btn-info"><i class="bi bi-three-dots-vertical"></i>view</button>
+                <button class="btn btn-sm btn-info"><i class="bi bi-three-dots-vertical"></i>
+                    <strong>view</strong>
+                </button>
             </td>
         </tr>
         @endforeach
