@@ -35,6 +35,7 @@ Route::get('/users/newuser', [UserController:: class, 'newuser'])->middleware('a
 Route::post('/users/newuser/add', [UserController:: class, 'add'])->middleware('auth');
 Route::post('/users/search', [UserController:: class, 'search'])->middleware('auth');
 Route::post('/users/user', [UserController::class, 'user'])->middleware('auth');
+Route::post('/users/resetpassword', [UserController::class, 'resetpassword']);
 
 // TICKETS CONTROLLER
 Route::get('/tickets', [TicketController:: class, 'tickets'])->middleware('auth');

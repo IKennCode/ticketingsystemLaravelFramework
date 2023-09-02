@@ -104,16 +104,27 @@
 
                 <div class="row">
                     <div class="col-sm-12 col-md-6 col-lg-6">
+                        @foreach($users as $user)
                         <div class="input-group">
-                            <input type="text" name="" id="" class="form-control form-control-sm" placeholder="change_password">
-                            <button class="btn btn-sm btn-primary">Change Password</button>
+                            <form action="/users/changepassword" method="post">
+                                @csrf
+                                <input type="text" name="new_password" id="new_password" class="form-control form-control-sm" placeholder="change_password">
+                                <button class="btn btn-sm btn-primary" type="submit">Change Password</button>
+                            </form>
                         </div>
+                        @endforeach
                     </div>
                     <div class="col-sm-12 col-md-1 col-lg-1">
                         |
                     </div>
                     <div class="col-sm-12 col-md-5 col-lg-5">
-                        <button>Reset Password</button>
+                        @foreach($users as $user)
+                            <form action="/users/resetpassword" method="post">
+                                @csrf
+                                <input type="hidden" name="user_id" value="{{$user->id}}">
+                                <button class="btn btn-sm btn-warning" type="submit">Reset Password</button>
+                            </form>
+                        @endforeach
                     </div>
                 </div>
             </div>

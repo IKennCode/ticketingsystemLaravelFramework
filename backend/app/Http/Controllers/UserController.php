@@ -107,10 +107,10 @@ class UserController extends Controller
             $logs['description'] = $creator . ' created an account for ' . $firstname . ' ' . $middlename . ' ' . $lastname;
             $logs['created_at'] = now();
             Logs::insert($logs);
-            return redirect('/users/newuser')
+            return redirect('/users')
                 ->with('error', 'New user created');
         }else{
-            return redirect('/users/newuser')
+            return redirect('/users')
                 ->with('error', 'Error saving record');
         }
     }
@@ -131,6 +131,18 @@ class UserController extends Controller
             'users' => $data,
             'rules' => $rules
         ]);
+    }
+
+    public function resetpassword(Request $request){
+        $data = User::where('id', '=', $request->input('user_id'))
+                    ->update(['password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi']);
+        if($data){
+            return redirect('/users')
+                ->with('message', 'Password set to default');
+        }else{
+            return redirect('/users')
+                ->with('message', 'Error resetting password');
+        }
     }
 }
 

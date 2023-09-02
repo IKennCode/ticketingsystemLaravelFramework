@@ -268,6 +268,6 @@ class TicketController extends Controller
     public function cancel(Request $request){
         $ticket_id = $request->input('ticket_id');
         Tickets::where('id', '=', $ticket_id)->update(['cancelled_by' => auth()->user()->id, 'status' => 5]);
-        return redirect()->intended('/tickets');
+        return redirect()->intended('/tickets/mytickets');
     }
 }
