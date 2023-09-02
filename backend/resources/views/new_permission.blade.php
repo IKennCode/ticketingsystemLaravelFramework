@@ -9,7 +9,7 @@
                     @csrf
                 <div class="input-group mb-3">
                     <label for="description" class="input-group-text">Permission Name</label>
-                    <input type="text" name="description" id="description" class="form-control form-control-sm">
+                    <input type="text" name="description" id="description" class="form-control form-control-sm" autofocus required>
                 </div>
                 
                 <div id="accordion">
