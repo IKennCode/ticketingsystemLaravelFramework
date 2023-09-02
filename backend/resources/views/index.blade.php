@@ -129,7 +129,7 @@
             <div class="inputGroup inputGroup1">
                 <label for="username" id="usernameLabel">Username</label>
 
-                <div class="col-md-6">
+                <div class="col-12">
                     <input id="username" name="username" type="text" class="form-control" value=" {{ old('username') }}" required>
                     @error('username')
                     <span class="invalid-feedback" role="alert">
@@ -141,10 +141,10 @@
 
             <div class="inputGroup inputGroup2">
                 <label for="password" id="loginPasswordLabel">Password</label>
-                <div class="col-md-6">
-                    <input id="password" type="password" name="password" required>
+                <div class="col-12">
+                    <input id="password" type="password" name="password" class="form-control form-control-sm" required>
                     <label id="showPasswordToggle" for="showPasswordCheck">Show
-                        <input id="showPasswordCheck" type="checkbox" />
+                        <input id="showPasswordCheck" type="checkbox" class="form-control form-control-sm" />
                         <div class="indicator"></div>
                     </label>
                 </div>
