@@ -96,9 +96,9 @@ class TicketController extends Controller
         $save = Tickets::insert($ticket);
 
         if($save){
-            return redirect('/tickets')->with('message', 'Ticket created');
+            return redirect('/tickets/mytickets')->with('message', 'Ticket created');
         }else{
-            return redirect('/tickets')->with('message', 'Failed to create ticket');
+            return redirect('/tickets/mytickets')->with('message', 'Failed to create ticket');
         }
     }
 
