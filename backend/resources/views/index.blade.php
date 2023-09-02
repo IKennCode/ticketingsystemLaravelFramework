@@ -151,7 +151,7 @@
             </div>
 
             <div class="inputGroup inputGroup3">
-                <div class="col-md-8 offset-md-4">
+                <div class="col-12">
                     <button type="submit" id="login">
                         Sign In
                     </button>
